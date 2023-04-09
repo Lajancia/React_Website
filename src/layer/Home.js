@@ -45,7 +45,7 @@ function Home() {
                 justifyContent="center"
                 alignItems="center"
                 minHeight="48vh">
-                <Grid container container >
+                <Grid container >
                     <Grid item xs={6} mr={8} pr={6}>
                         {/* <h3 align="right"></h3> */}
                         <Typography id="Typography" variant="h4" gutterBottom align="right">
