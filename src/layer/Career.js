@@ -2,6 +2,7 @@ import React from 'react'
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Showcard from '../components/Showcard'
+import Test from '../components/test';
 
 const styles = {
     page: {
@@ -33,6 +34,7 @@ function Career() {
                      <Grid item xs={3}></Grid>
                 </Grid>
                 <Showcard/>
+              
             </div>
         </>
     )

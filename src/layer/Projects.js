@@ -1,5 +1,8 @@
 import React from 'react';
 import Image from '../assets/react.png'
+import Glasscard from '../components/Glasscard'
+
+import Grid from '@mui/material/Grid';
 
 const styles = {
     home: {
@@ -17,7 +20,16 @@ const styles = {
 const Projects = () => {
     return (
         <div style={styles.home}>
-            
+             <Grid container>
+                    <Grid item xs={6} >
+                 
+                    </Grid>
+                    <Grid item xs={6}>
+                    <Glasscard/>
+                    </Grid>
+                  
+                </Grid>
+           
         </div>
     );
 };
