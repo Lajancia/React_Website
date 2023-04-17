@@ -2,6 +2,7 @@
 import Home from './layer/Home'
 import Career from './layer/Career'
 import Projects from './layer/Projects';
+import Bubble from './layer/Bubble';
 import Model from './components/Model'
 const styles = {
   // background: {
@@ -10,10 +11,11 @@ const styles = {
   // }
 }
 function App() {
-
+  document.title = "Lajancia React Portfolio";
   return (
     <div style={styles.background}>
-      <Home />
+      <Bubble/>
+      {/* <Home /> */}
       <Career/>
       <Projects/>
       {/* <Model/> */}

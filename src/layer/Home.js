@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from '../assets/home.png'
 import Grid from '@mui/material/Grid';
+import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import './Home.css'
 
@@ -13,7 +14,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import Tooltip from '@mui/material/Tooltip';
 
-import { Box } from '@mui/material';
+
 const styles = {
     home: {
         backgroundImage: `url(${Image})`,
