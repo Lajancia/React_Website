@@ -14,6 +14,8 @@ export default function Model({ scroll, ...props }) {
   const { nodes, materials, animations } = useGLTF("/model.glb")
   const { actions } = useAnimations(animations, group)
   const [hovered, set] = useState()
+  const [active, setActive] = useState(false);
+  const myMesh = React.useRef();
   const extras = { receiveShadow: true, castShadow: true, "material-envMapIntensity": 0.2 }
   useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
   useEffect(() => {
@@ -33,14 +35,14 @@ export default function Model({ scroll, ...props }) {
   })
 
   return (
-    
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null} style={{ height: "100vh" }}>
       <group
         onPointerOver={(e) => (e.stopPropagation(), set(e.object.name))}
         onPointerOut={(e) => (e.stopPropagation(), set(null))}
         position={[0.06, 4.04, 0.35]}
         scale={[0.25, 0.25, 0.25]}>
-        <mesh name="Headphones" geometry={nodes.Headphones.geometry} material={materials.M_Headphone} {...extras} />
+        <mesh name="Headphones" geometry={nodes.Headphones.geometry} material={materials.M_Headphone} {...extras}  onClick={() =>{setActive(!active); console.log('this is headphone')} }
+      ref={myMesh} />
         <mesh name="Notebook" geometry={nodes.Notebook.geometry} material={materials.M_Notebook} {...extras} />
         <mesh name="Rocket003" geometry={nodes.Rocket003.geometry} material={materials.M_Rocket} {...extras} />
         <mesh name="Roundcube001" geometry={nodes.Roundcube001.geometry} material={materials.M_Roundcube} {...extras} />

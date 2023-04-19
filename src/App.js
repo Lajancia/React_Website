@@ -4,6 +4,8 @@ import Career from './layer/Career'
 import Projects from './layer/Projects';
 import Bubble from './layer/Bubble';
 import Model from './components/Model'
+import Landing from './layer/Landing';
+
 const styles = {
   // background: {
   //   height: '100vh',
@@ -14,10 +16,11 @@ function App() {
   document.title = "Lajancia React Portfolio";
   return (
     <div style={styles.background}>
-      <Bubble/>
+      <Landing/>
+      {/* <Bubble/> */}
       {/* <Home /> */}
-      <Career/>
-      <Projects/>
+      {/* <Career/> */}
+      {/* <Projects/> */}
       {/* <Model/> */}
     </div>
   );
