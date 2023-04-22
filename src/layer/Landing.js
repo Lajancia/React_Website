@@ -16,7 +16,7 @@ export default function Landing() {
   const scroll = useRef(0)
   const styles = {
     page: {
-        backgroundColor: '#393e46',
+        backgroundColor: '#f7f7f7',
       height: '100vh',
       width: '140vw',
       // marginLeft:'10vw'
