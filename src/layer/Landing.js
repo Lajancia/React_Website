@@ -16,8 +16,10 @@ export default function Landing() {
   const scroll = useRef(0)
   const styles = {
     page: {
-        // backgroundColor: '#efefef',
-        height: '100vh',
+        backgroundColor: '#393e46',
+      height: '100vh',
+      width: '140vw',
+      // marginLeft:'10vw'
 
     }
 }

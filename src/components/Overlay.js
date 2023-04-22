@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react"
+import Button from '@mui/material/Button';
 
 const Overlay = forwardRef(({ caption, scroll }, ref) => (
   <div
@@ -8,7 +9,14 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
       caption.current.innerText = scroll.current.toFixed(2)
     }}
     class="scroll">
-    <div style={{ height: "400vh" }}>
+    <div style={{ height: "200vh" }}>
+      <div class="dot">
+        <h1>PORTFOLIO</h1>
+        <div >Welcome to Soomin's Portfolio Website. This Webdsite was Built with REACT + Three + Fiber. I'm trying to learn how to use those marvelous tools. Feel free to look around. </div>
+      </div>
+      
+    </div>
+    <div style={{ height: "200vh" }}>
       <div class="dot">
         <h1>headset</h1>
         Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.

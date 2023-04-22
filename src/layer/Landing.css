@@ -1,5 +1,6 @@
 @import url("https://rsms.me/inter/inter.css");
-
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@200&family=Staatliches&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -17,7 +18,7 @@ body,
 }
 
 #root {
-    height:100vh;
+  height: 100vh;
   overflow: auto;
 }
 
@@ -39,7 +40,7 @@ body {
   overscroll-behavior-y: none;
   background-color: #101010;
   background: radial-gradient(circle at bottom center, #212121 0%, #101010 80%);
-  font-family: "Inter var", sans-serif;
+  font-family: "Roboto Flex", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -49,8 +50,8 @@ body {
   top: 0;
   right: 0;
   margin: 80px;
-  color: white;
-  font-size: 8em;
+  color: #f8b500;
+  font-size: 4em;
   font-weight: 100;
   line-height: 1em;
   font-variant-numeric: tabular-nums;
@@ -62,24 +63,27 @@ body {
   position: sticky;
   top: 0px;
   display: inline-block;
-  max-width: 600px;
+  max-width: 750px;
   padding: 0;
   padding: 80px;
-  color: #a0a0a0;
+  padding-top: 35vh;
+  color: #f7f7f7;
   line-height: 1.6em;
-  font-size: 15px;
+  font-size: 20px;
   letter-spacing: 1.5px;
+  font-family: "Roboto Flex", sans-serif;
 }
 
 .dot > h1 {
   -webkit-font-smoothing: auto;
   pointer-events: none;
-  color: white;
+  color: #f8b500;
   font-size: 5em;
   font-weight: 100;
   line-height: 1em;
   margin: 0;
   margin-bottom: 0.25em;
+  font-family: "Staatliches", cursive;
 }
 
 @media only screen and (max-width: 1000px) {
