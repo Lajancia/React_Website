@@ -11,7 +11,7 @@ const color = new THREE.Color()
 
 export default function Model({ scroll, ...props }) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF("/model.glb")
+  const { nodes, materials, animations } = useGLTF("/scroll.glb")
   const { actions } = useAnimations(animations, group)
   const [hovered, set] = useState()
   const [active, setActive] = useState(false);
@@ -48,7 +48,7 @@ export default function Model({ scroll, ...props }) {
         <mesh name="Roundcube001" geometry={nodes.Roundcube001.geometry} material={materials.M_Roundcube} {...extras} />
         <mesh name="Table" geometry={nodes.Table.geometry} material={materials.M_Table} {...extras} />
         <mesh name="VR_Headset" geometry={nodes.VR_Headset.geometry} material={materials.M_Headset} {...extras} />
-        <mesh name="Zeppelin" geometry={nodes.Zeppelin.geometry} material={materials.M_Zeppelin} v />
+        <mesh name="Contect" geometry={nodes.Contect.geometry} material={materials.M_Contact} v/>
       </group>
       <group name="Camera" position={[-1.78, 2.04, 23.58]} rotation={[1.62, 0.01, 0.11]}>
         <PerspectiveCamera makeDefault far={100} near={0.1} fov={28} rotation={[-Math.PI / 2, 0, 0]}>
@@ -70,4 +70,4 @@ export default function Model({ scroll, ...props }) {
   )
 }
 
-useGLTF.preload("/model.glb")
+useGLTF.preload("/scroll.glb")

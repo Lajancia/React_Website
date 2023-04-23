@@ -18,7 +18,7 @@ export default function Landing() {
     page: {
         backgroundColor: '#f7f7f7',
       height: '100vh',
-      width: '140vw',
+      // width: '140vw',
       // marginLeft:'10vw'
 
     }
