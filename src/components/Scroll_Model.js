@@ -44,11 +44,11 @@ export default function Model({ scroll, ...props }) {
         <mesh name="Headphones" geometry={nodes.Headphones.geometry} material={materials.M_Headphone} {...extras}  onClick={() =>{setActive(!active); console.log('this is headphone')} }
       ref={myMesh} />
         <mesh name="Notebook" geometry={nodes.Notebook.geometry} material={materials.M_Notebook} {...extras} />
-        <mesh name="Rocket003" geometry={nodes.Rocket003.geometry} material={materials.M_Rocket} {...extras} />
+        <mesh name="Book" geometry={nodes.Book.geometry} material={materials.M_Book} {...extras} />
         <mesh name="Roundcube001" geometry={nodes.Roundcube001.geometry} material={materials.M_Roundcube} {...extras} />
         <mesh name="Table" geometry={nodes.Table.geometry} material={materials.M_Table} {...extras} />
-        <mesh name="VR_Headset" geometry={nodes.VR_Headset.geometry} material={materials.M_Headset} {...extras} />
-        <mesh name="Contect" geometry={nodes.Contect.geometry} material={materials.M_Contact} v/>
+        <mesh name="Coffee" geometry={nodes.Coffee.geometry} material={materials.M_Coffee} {...extras} />
+        <mesh name="Contect" geometry={nodes.Contect.geometry} material={materials.M_Contact} v />
       </group>
       <group name="Camera" position={[-1.78, 2.04, 23.58]} rotation={[1.62, 0.01, 0.11]}>
         <PerspectiveCamera makeDefault far={100} near={0.1} fov={28} rotation={[-Math.PI / 2, 0, 0]}>
