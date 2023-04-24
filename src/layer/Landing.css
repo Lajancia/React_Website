@@ -59,6 +59,7 @@ body {
 }
 
 .dot {
+  
   pointer-events: none;
   position: sticky;
   top: 0px;
