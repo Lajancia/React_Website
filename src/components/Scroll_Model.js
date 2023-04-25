@@ -17,6 +17,9 @@ export default function Model({ scroll, ...props }) {
   const [active, setActive] = useState(false);
   const myMesh = React.useRef();
   const extras = { receiveShadow: true, castShadow: true, "material-envMapIntensity": 0.2 }
+    const handleEmailClick = () => {
+    window.location.href = `mailto:kie6974@gmail.com`;
+  }
   useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
   useEffect(() => {
     if (hovered) group.current.getObjectByName(hovered).material.color.set("white")
@@ -48,7 +51,7 @@ export default function Model({ scroll, ...props }) {
         <mesh name="Roundcube001" geometry={nodes.Roundcube001.geometry} material={materials.M_Roundcube} {...extras} />
         <mesh name="Table" geometry={nodes.Table.geometry} material={materials.M_Table} {...extras} />
         <mesh name="Coffee" geometry={nodes.Coffee.geometry} material={materials.M_Coffee} {...extras} />
-        <mesh name="Contect" geometry={nodes.Contect.geometry} material={materials.M_Contact} v />
+        <mesh name="Contect" geometry={nodes.Contect.geometry} material={materials.M_Contact} v onClick={() =>{ handleEmailClick()} }/>
       </group>
       <group name="Camera" position={[-1.78, 2.04, 23.58]} rotation={[1.62, 0.01, 0.11]}>
         <PerspectiveCamera makeDefault far={100} near={0.1} fov={28} rotation={[-Math.PI / 2, 0, 0]}>

@@ -25,30 +25,31 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
     <div style={{ height: "200vh" }}>
       <div class="dot">
         <h1>EDUCATION</h1>
-        Headphones are a pair of small loudspeaker drivers worn on or around the head over a user's ears.
+        19 Years and Plus of my Education. Graduating the University and study various languages and so on. Interested? Sorry. But this page is still on building. I promise It will be done in short day....or month!
       </div>
     </div>
     <div style={{ height: "200vh" }}>
       <div class="dot">
         <h1>PUBLISHING</h1>
-        A rocket (from Italian: rocchetto, lit. 'bobbin/spool')[nb 1][1] is a projectile that spacecraft, aircraft or other vehicle use to obtain thrust from a
-        rocket engine.
+        Well...I really like writting. During the University Student, I won the Writting competition and have chance to publish my own Book! Of course, I draw all the illustrations too. Wanna read my Story? Sorry. Also this page is on making xp
       </div>
     </div>
     <div style={{ height: "200vh" }}>
       <div class="dot">
-        <h1>PROJECTS</h1>A turbine (/ˈtɜːrbaɪn/ or /ˈtɜːrbɪn/) (from the Greek τύρβη, tyrbē, or Latin turbo, meaning vortex)[1][2] is a rotary mechanical device that extracts energy
-        from a fluid flow and converts it into useful work.
+        <h1>PROJECTS</h1>
+        I Did a lot of projects. With Team or without team. I prefer to do my own work, But Teamwork is always important. I still dont know how to show my projects. So i'm still thinking how to make this page...
       </div>
     </div>
     <div style={{ height: "200vh" }}>
       <div class="dot">
-        <h1>GALLERY</h1>A table is an item of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things.[1][2]
+        <h1>GALLERY</h1>
+        As I said, I like writting and also drawing. I draw a lot of arts and make a lot of models. I truly want to share my masterpiece, but right now, I have too many things to make...sadly. Instead, You can check my Instagram :)
       </div>
     </div>
     <div style={{ height: "200vh" }}>
       <div class="dot">
-        <h1>CODING</h1>A laptop, laptop computer, or notebook computer is a small, portable personal computer (PC) with a screen and alphanumeric keyboard.
+        <h1>CODING</h1>
+        Living as a Programmer is like living in a dilema of Why it works and why it doesn't work. But my true friend stackOverflow helps a lot. Maybe I'm better than yesterday.
       </div>
     </div>
     <div style={{ height: "200vh" }}>
