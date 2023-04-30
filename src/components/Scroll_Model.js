@@ -17,8 +17,11 @@ export default function Model({ scroll, ...props }) {
   const [active, setActive] = useState(false);
   const myMesh = React.useRef();
   const extras = { receiveShadow: true, castShadow: true, "material-envMapIntensity": 0.2 }
-    const handleEmailClick = () => {
+  const handleEmailClick = () => {
     window.location.href = `mailto:kie6974@gmail.com`;
+  }
+  const handleInstaClick = () => {
+    window.location.href = `https://www.instagram.com/lajancia/`;
   }
   useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
   useEffect(() => {
@@ -44,12 +47,12 @@ export default function Model({ scroll, ...props }) {
         onPointerOut={(e) => (e.stopPropagation(), set(null))}
         position={[0.06, 4.04, 0.35]}
         scale={[0.25, 0.25, 0.25]}>
-        <mesh name="Headphones" geometry={nodes.Headphones.geometry} material={materials.M_Headphone} {...extras}  onClick={() =>{setActive(!active); console.log('this is headphone')} }
+        <mesh name="hat" geometry={nodes.hat.geometry} material={materials.hat} {...extras}  onClick={() =>{setActive(!active); console.log('this is headphone')} }
       ref={myMesh} />
         <mesh name="Notebook" geometry={nodes.Notebook.geometry} material={materials.M_Notebook} {...extras} />
         <mesh name="Book" geometry={nodes.Book.geometry} material={materials.M_Book} {...extras} />
-        <mesh name="Roundcube001" geometry={nodes.Roundcube001.geometry} material={materials.M_Roundcube} {...extras} />
-        <mesh name="Table" geometry={nodes.Table.geometry} material={materials.M_Table} {...extras} />
+        <mesh name="Text" geometry={nodes.Text.geometry} material={materials.projects} {...extras} />
+        <mesh name="Picture" geometry={nodes.picture.geometry} material={materials.picture} {...extras} onClick={() =>{ handleInstaClick()} }/>
         <mesh name="Coffee" geometry={nodes.Coffee.geometry} material={materials.M_Coffee} {...extras} />
         <mesh name="Contect" geometry={nodes.Contect.geometry} material={materials.M_Contact} v onClick={() =>{ handleEmailClick()} }/>
       </group>
