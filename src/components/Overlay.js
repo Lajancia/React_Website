@@ -55,13 +55,13 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
     <div style={{ height: "200vh" }}>
       <div class="dot">
         <h1>EMAIL</h1>
-        Are you Interested of my works? Have any questions? <br/> Feel free to contact me!
+        Are you Interested of my works? Have any questions? <br /> Feel free to contact me!
       </div>
     </div>
     <span class="caption" ref={caption}>
       0.00
     </span>
   </div>
-))
+));
 
 export default Overlay
