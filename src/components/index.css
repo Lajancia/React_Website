@@ -1,3 +1,5 @@
+
+
 .container {
     position: relative;
     width: 50%;
@@ -14,7 +16,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #000000;
+    background-color: #ff9a3c;
     overflow: hidden;
     width: 0;
     height: 100%;
@@ -35,4 +37,43 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     white-space: nowrap;
+  }
+
+  .dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    pointer-events: none;
+    position: sticky;
+    top: 0px;
+    display: inline-block;
+    max-width: 600px;
+    padding: 0;
+    padding: 80px;
+    /* margin-top: vh; */
+
+    line-height: 1.6em;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+  }
+  .title {
+    font-family: "Staatliches", cursive;
+    margin: 80px;
+    color: #f8b500;
+    font-size: 6em;
+    font-weight: 100;
+    line-height: 1em;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: auto;
+  }
+  .captions {
+    font-family: "Roboto Flex", sans-serif;
+    margin: 80px;
+    color: #393e46;
+    font-size: 1em;
+    font-weight: 100;
+    line-height: 1.8em;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: auto;
   }

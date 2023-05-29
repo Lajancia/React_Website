@@ -13,7 +13,7 @@ function Showcard() {
                 <div class="container">
                 <img src={Image} alt="Avatar" class="image"/>
                 <div class="overlay">
-                    <div class="text">Education</div>
+                    <div class="text">OUTSOURCING</div>
                 </div>
                 </div>
                 </Grid>
@@ -21,7 +21,7 @@ function Showcard() {
                 <div class="container">
                 <img src={Image} alt="Avatar" class="image"/>
                 <div class="overlay">
-                    <div class="text">Work</div>
+                    <div class="text">INTERN</div>
                 </div>
                 </div>
                 </Grid>
@@ -29,7 +29,7 @@ function Showcard() {
                 <div class="container">
                 <img src={Image} alt="Avatar" class="image"/>
                 <div class="overlay">
-                    <div class="text">Artist</div>
+                    <div class="text">COMPANY</div>
                 </div>
                 </div>
                 </Grid>

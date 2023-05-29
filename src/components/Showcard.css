@@ -1,4 +1,6 @@
 .overlay {
+  font-family: "Inter var", sans-serif;
+  -webkit-font-smoothing: antialiased;
   position: absolute;
   bottom: 0;
   left: 0;
