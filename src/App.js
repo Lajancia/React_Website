@@ -3,7 +3,7 @@ import Home from './layer/Home'
 import Career from './layer/Career'
 import Projects from './layer/Projects';
 import Bubble from './layer/Bubble';
-import Model from './components/Model'
+// import Model from './components/Model'
 import Landing from './layer/Landing';
 
 const styles = {

@@ -23,6 +23,9 @@ export default function Model({ scroll, ...props }) {
   const handleInstaClick = () => {
     window.location.href = `https://www.instagram.com/lajancia/`;
   }
+   const handleGitClick = () => {
+    window.location.href = `https://github.com/Lajancia`;
+  }
   useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
   useEffect(() => {
     if (hovered) group.current.getObjectByName(hovered).material.color.set("white")
@@ -49,7 +52,7 @@ export default function Model({ scroll, ...props }) {
         scale={[0.25, 0.25, 0.25]}>
         <mesh name="hat" geometry={nodes.hat.geometry} material={materials.hat} {...extras}  onClick={() =>{setActive(!active); console.log('this is headphone')} }
       ref={myMesh} />
-        <mesh name="Notebook" geometry={nodes.Notebook.geometry} material={materials.M_Notebook} {...extras} />
+        <mesh name="Notebook" geometry={nodes.Notebook.geometry} material={materials.M_Notebook} {...extras} onClick={() =>{ handleGitClick()} }/>
         <mesh name="Book" geometry={nodes.Book.geometry} material={materials.M_Book} {...extras} />
         <mesh name="Text" geometry={nodes.Text.geometry} material={materials.projects} {...extras} />
         <mesh name="Picture" geometry={nodes.picture.geometry} material={materials.picture} {...extras} onClick={() =>{ handleInstaClick()} }/>
