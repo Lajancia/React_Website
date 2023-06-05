@@ -110,7 +110,7 @@ function Work3() {
   const styles = {
       page: {
         backgroundColor: '#93A8BD',
-        height: '150vh',
+        height: '180vh',
       }
   }
   return (
@@ -125,7 +125,7 @@ function Work3() {
           <Environment preset="sunset" background blur={0.5} />
         </Suspense>
       </Canvas>
-      <div style={{ position: "absolute", top: 0, left: 0, width:'100%',color: "white" }}>
+      <div style={{ position: "absolute", top: 0, left: 0, width:'100%', height:'100%',color: "white" }}>
         <Overlay3/>
       </div>
     </div>
