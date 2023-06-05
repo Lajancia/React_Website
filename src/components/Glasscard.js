@@ -5,24 +5,50 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 const GlassCard = styled(Card)(({ theme }) => ({
-  backgroundColor: 'rgba(255, 255, 255, 0.3)',
-  backdropFilter: 'blur(8px)',
-
+  backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  backdropFilter: 'blur(4px)',
+  color : '#ffffff',
 //   boxShadow: theme.shadows[5],
-  height:'100vh'
+
 }));
 
-export default function GlassmorphismCard() {
+ function Glasscard({title, word}) {
   return (
     <GlassCard>
       <CardContent>
         <Typography variant="h5" component="div">
-          Glassmorphism Card
+          {title}
         </Typography>
         <Typography variant="body2">
-          This is an example of a card using the Glassmorphism effect.
+          {word}
         </Typography>
       </CardContent>
     </GlassCard>
   );
 }
+
+function GlassDisplayCard({title, word, word2, word3, word4}) {
+  return (
+    <GlassCard>
+      <CardContent>
+        <Typography variant="h5" component="div">
+          {title}
+        </Typography>
+        <Typography variant="body2">
+          {word}
+        </Typography>
+        <Typography variant="body2">
+          {word2}
+        </Typography>
+        <Typography variant="body2">
+          {word3}
+        </Typography>
+        <Typography variant="body2">
+          {word4}
+        </Typography>
+      </CardContent>
+    </GlassCard>
+  );
+}
+
+export {Glasscard,GlassDisplayCard}

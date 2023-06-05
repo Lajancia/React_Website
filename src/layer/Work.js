@@ -1,34 +1,39 @@
-import React, { Suspense, useRef } from "react"
-import { Canvas } from "@react-three/fiber"
-import { Environment, Html, useProgress } from "@react-three/drei"
+import React from "react"
 import {Work,Work2,Work3} from "../components/Work_Career.js"
-
 import Grid from '@mui/material/Grid';
-// import "./Landing.css"
-
+import {Overlay} from "../components/Work_Overlay.js"
+import Typography from '@mui/material/Typography';
 
 export default function Landing() {
-  const overlay = useRef()
-  const caption = useRef()
-  const scroll = useRef(0)
   const styles = {
     page: {
-        backgroundColor: '#f7f7f7',
-      height: '100vh',
-      // width: '140vw',
-      // marginLeft:'10vw'
+      cursor: 'auto'
 
     }
   }
   return (
-    <>
-    
-      <Work/>
-      <Work2/>
-      <Work3/>
-
- 
-   
-    </>
+    <div style={styles.page}>
+      <Grid container>
+        <Grid item xs={12}>
+          <Work/>
+        </Grid>
+        <Grid item xs={12} m={10}>
+          <Typography variant="body2" component="div" align="center">
+          Code Hard, Travel Hard
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Work2/>
+        </Grid>
+        <Grid item xs={12} m={10}>
+          <Typography variant="body2" component="div" align="center">
+            Faster, Better
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Work3/>
+        </Grid>
+      </Grid>
+    </div>
   )
 }

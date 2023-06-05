@@ -24,7 +24,7 @@ export default function Model({ scroll, ...props }) {
   const handleGitClick = () => {
     window.location.href = `https://github.com/Lajancia`;
   }
-  const handleCoffeeClick = () => navigate('/product1');
+  const handleCoffeeClick = () => navigate('/work');
   useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
   useEffect(() => {
     if (hovered) group.current.getObjectByName(hovered).material.color.set("white")

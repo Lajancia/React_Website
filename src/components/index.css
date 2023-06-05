@@ -1,5 +1,12 @@
+.canvas{
+  background-color: '#93A8BD';
+  height: '120vh';
+}
 
-
+.frame{
+ margin: 20%;
+ margin-top: 10%;
+}
 .container {
     position: relative;
     width: 50%;
@@ -59,8 +66,8 @@
   }
   .title {
     font-family: "Staatliches", cursive;
-    margin: 80px;
-    color: #f8b500;
+    margin: 40px;
+    color: #ffffff;
     font-size: 6em;
     font-weight: 100;
     line-height: 1em;
@@ -69,7 +76,7 @@
   }
   .captions {
     font-family: "Roboto Flex", sans-serif;
-    margin: 80px;
+    margin: 40px;
     color: #393e46;
     font-size: 1em;
     font-weight: 100;
@@ -77,3 +84,45 @@
     font-variant-numeric: tabular-nums;
     -webkit-font-smoothing: auto;
   }
+
+  @media only screen and (max-width: 1000px) {
+    .frame {
+      margin: 20%;
+      margin-top: 10%;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .frame {
+      margin: 20%;
+ margin-top: 10%;
+    }
+    .dot > h1 {
+      font-size: 3em;
+    }
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .frame {
+      margin: 20%;
+      margin-top: 10%;
+    }
+    .dot > h1 {
+      font-size: 3em;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .frame {
+      margin: 5%;
+      margin-top: 5%;
+    }
+    .title{
+      font-size: 4em;
+    }
+    .captions{
+      margin:20px;
+    }
+
+  }
+  

@@ -1,11 +1,15 @@
-import { Suspense, useMemo, useRef, forwardRef,useState } from 'react'
+import { Suspense,  useRef} from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import {AccumulativeShadows, RandomizedLight,useGLTF, useScroll, ScrollControls, Environment, Merged, Text, MeshReflectorMaterial } from '@react-three/drei'
-import { Color } from 'three';
+import {useProgress, Html,useGLTF,Environment} from '@react-three/drei'
 import {Overlay,Overlay2,Overlay3} from "../components/Work_Overlay.js"
 import './index.css';
 import Grid from '@mui/material/Grid';
+import Glasscard from '../components/Glasscard'
 
+function Loader() {
+  const { progress } = useProgress()
+  return <Html center>{progress} % loaded</Html>
+}
 function Earth() {
   const earth = useRef();
   const work= useGLTF( '/work.glb');
@@ -46,97 +50,87 @@ function Desk() {
 }
 
 function Work() {
-
     const styles = {
         page: {
             backgroundColor: '#93A8BD',
-          height: '100vh',
-          // marginLeft:'10vw'
-    
+            height: '100vh',
+     
+         
         }
     }
+
     return (
       <>
-       <Grid container>
-        <Grid item xs={4}>
-        <Canvas dpr={[1, 1]} shadows camera={{ position: [5, 0, 80], fov: 25 }} style={styles.page}>
-          <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
-            <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} />
-          </directionalLight> 
-          <Earth />
-          <Environment preset="sunset" background blur={0.5} />
-        </Canvas>
-        </Grid>
-        <Grid item xs={8}>
-        <Overlay />
-        </Grid>
-        </Grid>
-       
-      
+        <div style={{ position: "relative" }}>
+            <Canvas dpr={[1, 1]} shadows camera={{ position: [5, 0, 80], fov: 25 }} style={styles.page}>
+              <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
+                <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} />
+              </directionalLight> 
+              <Suspense fallback={<Loader />}>
+                <Earth />
+                <Environment preset="sunset" background blur={0.5} />
+              </Suspense>
+            </Canvas>
+            <div style={{ position: "absolute", top: 0, left: 0, width:'100%',color: "white" }}>
+              <Overlay/>
+            </div>
+        </div>
       </>
     )
   }
   
 function Work2() {
-
   const styles = {
-      page: {
-          backgroundColor: '#93A8BD',
-        height: '100vh',
-        // marginLeft:'10vw'
-  
+    page: {
+      backgroundColor: '#93A8BD',
+      height: '150vh',
       }
   }
   return (
     <>
-     <Grid container>
-      <Grid item xs={7}>
-      <Overlay2 />
-      </Grid>
-      <Grid item xs={5}>
-      <Canvas dpr={[1, 1]} shadows camera={{ position: [5, 0, 80], fov: 25 }} style={styles.page}>
-        <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
-          <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} />
-        </directionalLight> 
-        <Desk />
-        <Environment preset="sunset" background blur={0.5} />
-      </Canvas>
-      </Grid>
-      </Grid>
-     
-    
+      <div style={{ position: "relative" }}>
+        <Canvas dpr={[1, 1]} shadows camera={{ position: [5, 0, 80], fov: 25 }} style={styles.page}>
+          <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
+            <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} />
+          </directionalLight> 
+          <Suspense fallback={<Loader />}>
+            <Desk />
+            <Environment preset="sunset" background blur={0.5} />
+          </Suspense>
+        </Canvas>
+        <div style={{ position: "absolute", top: 0, left: 0, width:'100%',color: "white" }}>
+          <Overlay2/>
+        </div>
+      </div>
     </>
   )
 }
+
 function Work3() {
-
   const styles = {
       page: {
-          backgroundColor: '#93A8BD',
-        height: '100vh',
-        // marginLeft:'10vw'
-  
+        backgroundColor: '#93A8BD',
+        height: '150vh',
       }
   }
   return (
     <>
-     <Grid container>
-      <Grid item xs={6}>
+    <div style={{ position: "relative" }}>
       <Canvas dpr={[1, 1]} shadows camera={{ position: [5, 0, 80], fov: 25 }} style={styles.page}>
         <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
           <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} />
         </directionalLight> 
-        <Apart />
-        <Environment preset="sunset" background blur={0.5} />
+        <Suspense fallback={<Loader />}>
+          <Apart />
+          <Environment preset="sunset" background blur={0.5} />
+        </Suspense>
       </Canvas>
-      </Grid>
-      <Grid item xs={6}>
-      <Overlay3 />
-      </Grid>
-      </Grid>
-     
-    
+      <div style={{ position: "absolute", top: 0, left: 0, width:'100%',color: "white" }}>
+        <Overlay3/>
+      </div>
+    </div>
     </>
   )
 }
+
 export {Work,Work2,Work3}
