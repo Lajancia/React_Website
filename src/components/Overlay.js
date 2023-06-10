@@ -18,7 +18,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
     <div style={{ height: "200vh" }}>
       <div class="dot">
         <h1>WORK</h1>
-        I love the scent of morning coffee and Burning GPU. Right now, I'm working as FullStack Programmer. Although I'm junior developer, I always try to be better than yesterday :)
+        I love the scent of morning coffee and Burning CPU. Right now, I'm working as FullStack Programmer. Although I'm junior developer, I always try to be better than yesterday :)
       </div>
     </div>
     <div style={{ height: "200vh" }}>
@@ -61,6 +61,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
       0.00
     </span>
   </div>
-));
+)
+);
 
 export default Overlay
