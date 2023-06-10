@@ -13,8 +13,10 @@ export default function Model({ scroll, ...props }) {
   const { actions } = useAnimations(animations, group)
   const [hovered, set] = useState()
   const [active, setActive] = useState(false);
+
   const myMesh = React.useRef();
   const extras = { receiveShadow: true, castShadow: true, "material-envMapIntensity": 0.2 }
+
   const handleEmailClick = () => {
     window.location.href = `mailto:kie6974@gmail.com`;
   }
@@ -25,6 +27,9 @@ export default function Model({ scroll, ...props }) {
     window.location.href = `https://github.com/Lajancia`;
   }
   const handleCoffeeClick = () => navigate('/work');
+
+  const handleHatClick = () => navigate('/education');
+
   useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
   useEffect(() => {
     if (hovered) group.current.getObjectByName(hovered).material.color.set("white")
@@ -49,7 +54,7 @@ export default function Model({ scroll, ...props }) {
         onPointerOut={(e) => (e.stopPropagation(), set(null))}
         position={[0.06, 4.04, 0.35]}
         scale={[0.25, 0.25, 0.25]}>
-        <mesh name="hat" geometry={nodes.hat.geometry} material={materials.hat} {...extras}  onClick={() =>{setActive(!active); console.log('this is headphone')} }
+        <mesh name="hat" geometry={nodes.hat.geometry} material={materials.hat} {...extras}  onClick={() =>{ handleHatClick()} }
       ref={myMesh} />
         <mesh name="Notebook" geometry={nodes.Notebook.geometry} material={materials.M_Notebook} {...extras} onClick={() =>{ handleGitClick()} }/>
         <mesh name="Book" geometry={nodes.Book.geometry} material={materials.M_Book} {...extras} />

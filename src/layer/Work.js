@@ -8,7 +8,6 @@ export default function Landing() {
   const styles = {
     page: {
       cursor: 'auto'
-
     }
   }
   return (

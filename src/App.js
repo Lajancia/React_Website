@@ -1,7 +1,7 @@
 import Work from './layer/Work'
 import Landing from './layer/Landing';
 import {Route,Routes} from 'react-router-dom';
-
+import Education from './layer/Education'
 const styles = {
   // background: {
   //   height: '100vh',
@@ -16,13 +16,9 @@ function App() {
       <Routes>
           <Route exact path="/" element={<Landing/>}></Route>
           <Route path="/work" element={< Work/>}></Route>
+          <Route path="/education" element={< Education/>}></Route>
           <Route path="/" element={'Not found'}></Route>
         </Routes>
-      {/* <Bubble/> */}
-      {/* <Home /> */}
-      {/* <Career/> */}
-      {/* <Projects/> */}
-      {/* <Model/> */}
     </div>
   );
 }
