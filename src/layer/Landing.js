@@ -22,7 +22,7 @@ export default function Landing() {
       // marginLeft:'10vw'
 
     }
-}
+  }
   return (
     <>
       <Canvas shadows eventSource={document.getElementById("root")}  style={styles.page}  eventPrefix="client">

@@ -1,10 +1,6 @@
-
-import Home from './layer/Home'
-import Career from './layer/Career'
-import Projects from './layer/Projects';
-import Bubble from './layer/Bubble';
-// import Model from './components/Model'
+import Work from './layer/Work'
 import Landing from './layer/Landing';
+import {Route,Routes} from 'react-router-dom';
 
 const styles = {
   // background: {
@@ -16,7 +12,12 @@ function App() {
   document.title = "Lajancia React Portfolio";
   return (
     <div style={styles.background}>
-      <Landing/>
+      
+      <Routes>
+          <Route exact path="/" element={<Landing/>}></Route>
+          <Route path="/work" element={< Work/>}></Route>
+          <Route path="/" element={'Not found'}></Route>
+        </Routes>
       {/* <Bubble/> */}
       {/* <Home /> */}
       {/* <Career/> */}

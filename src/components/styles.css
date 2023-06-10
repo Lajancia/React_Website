@@ -36,8 +36,8 @@ body {
   position: fixed;
   overflow: hidden;
   overscroll-behavior-y: none;
-  background-color: #101010;
-  background: radial-gradient(circle at bottom center, #212121 0%, #101010 80%);
+  background-color: #ffffff;
+  background: radial-gradient(circle at bottom center, #ffffff 0%, #ffffff 80%);
   font-family: "Inter var", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
