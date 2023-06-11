@@ -28,7 +28,7 @@ const Education = () => {
             <Grid item xs={12} sm={12} md={4} style={{ padding: '4px'}}>
               <BasicCard
                 category={'Graduation'}
-                title={'Hankuk University of Forien Studies'}
+                title={'Hankuk University of Foreign Studies'}
                 duration={'2018.02 - 2023.02'}
                 explain={'Majored in Computer Electronic Systems and studied Spanish translation as a minor.'}
               />

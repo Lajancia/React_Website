@@ -18,19 +18,19 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
     <div style={{ height: "200vh" }}>
       <div className="dot">
         <h1>WORK</h1>
-        I love the scent of morning coffee and Burning CPU. Right now, I'm working as FullStack Programmer. Although I'm junior developer, I always try to be better than yesterday :)
+        I love the scent of morning coffee and Burning GPU. Right now, I'm working as FullStack Programmer. Although I'm junior developer, I always try to be better than yesterday :)
       </div>
     </div>
     <div style={{ height: "200vh" }}>
       <div className="dot">
         <h1>EDUCATION</h1>
-        19 Years and Plus of my Education. Graduating the University, study various languages and so on. Interested? Sorry. But this page is still on building.
+        19 Years and Plus of my Education. Graduating the University, study various languages and so on. 
       </div>
     </div>
     <div style={{ height: "200vh" }}>
       <div className="dot">
         <h1>PUBLISHING</h1>
-        Well...I really like writting. During the University Student, I won the Writting competition and have chance to publish my own Book! Also this page is on making xp
+       I really like writting. During the University Student, I won the Writting competition and have chance to publish my own Book! 
       </div>
     </div>
     <div style={{ height: "200vh" }}>
@@ -42,7 +42,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
     <div style={{ height: "200vh" }}>
       <div className="dot">
         <h1>GALLERY</h1>
-       I like writting and also drawing. I draw a lot of arts and make a lot of models. I truly want to share my masterpiece, but right now, I have too many things to make...sadly. Instead, You can check my Instagram :)
+       I like writting and also drawing. I draw a lot of arts and make a lot of models. You can check my Instagram :)
       </div>
     </div>
     <div style={{ height: "200vh" }}>
