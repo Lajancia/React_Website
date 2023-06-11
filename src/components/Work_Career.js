@@ -16,12 +16,12 @@ import Glasscard from '../components/Glasscard'
         page2: {
                   backgroundColor: '#101010',
                   background: 'radial-gradient(circle at bottom center, #212121 0%, #101010 80%)',
-                  height: '150vh',
+                  height: '180vh',
         },
         page3: {
                   backgroundColor: '#101010',
                   background: 'radial-gradient(circle at bottom center, #212121 0%, #101010 80%)',
-                  height: '150vh',
+                  height: '180vh',
               }
    
     }

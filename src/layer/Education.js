@@ -24,7 +24,7 @@ const Education = () => {
         <Grid item xs={12} style={{ height: '100vh' }}>
            <Eduction/>
         </Grid>
-        <Grid container xs={12} spacing={5} margin={4} style={{ height: '40vh' }}>
+        <Grid container xs={12} spacing={5} margin={4} >
             <Grid item xs={12} sm={12} md={4} style={{ padding: '4px'}}>
               <BasicCard
                 category={'Graduation'}
