@@ -2,6 +2,10 @@ import React, { forwardRef } from "react"
 import Button from '@mui/material/Button';
 import './index.css'
 import {Glasscard,GlassDisplayCard} from '../components/Glasscard'
+import { useNavigate  } from 'react-router-dom';
+
+
+
 
 const Overlay = ()=>{
   return(
@@ -64,6 +68,12 @@ const Overlay2 = ()=>{
 }
 
 const Overlay3 = ()=>{
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/');
+  };
+
   return(
       <div class="frame">
         <h1 class="title">WEB DEVELOPER</h1>
@@ -101,6 +111,15 @@ const Overlay3 = ()=>{
             word2={"- Developed data collection and parsing"}
           />
         </div>
+        <div style={{ textAlign: 'center' }}>
+        <Button
+      variant="outlined"
+      style={{ color: 'white', borderColor: 'white' }}
+      onClick={handleClick}
+    >
+      Go Back Home
+    </Button>
+    </div>
       </div> 
   )
   

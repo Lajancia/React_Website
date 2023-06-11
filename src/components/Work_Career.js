@@ -31,11 +31,39 @@ function Loader() {
   return <Html center color={'white'}>{progress} % loaded</Html>
 }
 function Earth() {
-  const earth = useRef();
+  const Cube = useRef();
   const work= useGLTF( '/work.glb');
 
    const glassMaterial = new THREE.MeshPhysicalMaterial({
    transparent: true,
+  opacity: 0.5,
+  color: 'white',
+  roughness: 0,
+  side: THREE.FrontSide,
+  blending: THREE.AdditiveBlending,
+  polygonOffset: true,
+  polygonOffsetFactor: 1,
+  envMapIntensity: 21
+   });
+  
+  useFrame(() => {Cube.current.rotation.y += 0.01});
+  return (
+    
+    <primitive
+      ref={Cube}
+      material={glassMaterial}
+      position={[-5, 0, -50]}
+      scale={[5, 5, 5]}
+      object={work.nodes.Cube}
+    />
+          )
+  }
+
+function Apart() {
+  const Torus = useRef();
+  const work= useGLTF( '/work.glb');
+  const glassMaterial = new THREE.MeshPhysicalMaterial({
+  transparent: true,
   opacity: 1,
   color: 'white',
   roughness: 0,
@@ -46,54 +74,48 @@ function Earth() {
   envMapIntensity: 21
    });
   
-  useFrame(() => {earth.current.rotation.y += 0.01});
+  useFrame(() => {Torus.current.rotation.z += 0.01});
   return (
     
     <primitive
-      ref={earth}
+      ref={Torus}
       material={glassMaterial}
-      position={[0, 0, -50]}
-      scale={[5, 5, 5]}
-      object={work.nodes.earth}
+      position={[-3, 0, -30]}
+      scale={[7, 7, 7]}
+      object={work.nodes.Torus}
     />
-          )
-  }
-
-function Apart() {
-  const apart = useRef();
-  const work= useGLTF( '/work.glb');
-
-  useFrame(() => {apart.current.rotation.y += 0.005});
-
-  return <primitive 
-          ref={apart} 
-          position={[-5,-8,-5]} 
-          scale={[1,1,1]} 
-          object={work.nodes.apartment} />
+  )
 }
 
 function Desk() {
-  const desk = useRef();
+  const Icosphere = useRef();
   const work= useGLTF( '/work.glb');
-  // useFrame(() => (earth.current.position.x = scroll.offset * -50))
-
-  useFrame(() => {desk.current.rotation.y += 0.01});
-  return <primitive 
-          ref={desk} 
-          position={[0,-10,0]} 
-          scale={[2,2.5,2]} 
-          object={work.nodes.computer} />
+  const glassMaterial = new THREE.MeshPhysicalMaterial({
+  transparent: true,
+  opacity:1,
+  color: 'white',
+  roughness: 0,
+  side: THREE.FrontSide,
+  blending: THREE.AdditiveBlending,
+  polygonOffset: true,
+  polygonOffsetFactor: 1,
+  envMapIntensity: 21
+   });
+  
+  useFrame(() => {Icosphere.current.rotation.y -= 0.01});
+  return (
+    
+    <primitive
+      ref={Icosphere}
+      material={glassMaterial}
+      position={[-3, 0, -30]}
+      scale={[3, 3, 3]}
+      object={work.nodes.Icosphere}
+    />
+  )
 }
 
 function Work() {
-    // const styles = {
-    //     page: {
-    //         backgroundColor: '#101010',
-    //         background: 'radial-gradient(circle at bottom center, #212121 0%, #101010 80%)',
-    //         height: '100vh',
-    //     }
-    // }
-
     return (
       <>
         
@@ -122,7 +144,7 @@ function Work2() {
     <>
       <div style={{ position: "relative" }}>
         <Canvas dpr={[1, 1]} shadows camera={{ position: [5, 0, 80], fov: 25 }} style={styles.page2}>
-          <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
+          <directionalLight castShadow intensity={4} position={[15, 10, 30]} shadow-mapSize={[1024, 1024]} color={'#93A8BD'}>
             <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} />
           </directionalLight> 
           <Suspense fallback={<Loader />}>
@@ -149,7 +171,7 @@ function Work3() {
     <>
     <div style={{ position: "relative" }}>
       <Canvas dpr={[1, 1]} shadows camera={{ position: [5, 0, 80], fov: 25 }} style={styles.page3}>
-        <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
+        <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]} color={'#93A8BD'}>
           <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} />
         </directionalLight> 
         <Suspense fallback={<Loader />}>
