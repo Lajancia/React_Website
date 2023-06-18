@@ -29,6 +29,7 @@
     width: 0;
     height: 100%;
     transition: .5s ease;
+    color: #ffffff;
   }
   
   .container:hover .overlay {
@@ -59,6 +60,7 @@
     max-width: 600px;
     padding: 0;
     padding: 80px;
+    color:'#ffffff';
     /* margin-top: vh; */
 
     line-height: 1.6em;
@@ -78,7 +80,7 @@
   .captions {
     font-family: "Roboto Flex", sans-serif;
     margin: 40px;
-    color: #393e46;
+    color: #ffffff;
     font-size: 1em;
     font-weight: 100;
     line-height: 1.8em;

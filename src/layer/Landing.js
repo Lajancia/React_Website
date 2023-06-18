@@ -1,49 +1,61 @@
-import React, { Suspense, useRef } from "react"
+import React, { Suspense, useRef,useState, useEffect  } from "react"
 import { Canvas } from "@react-three/fiber"
-import { Environment, Html, useProgress } from "@react-three/drei"
+import { Environment, Html } from "@react-three/drei"
 import Model from "../components/Scroll_Model.js"
 import Overlay from "../components/Overlay.js"
+import { TypeAnimation } from 'react-type-animation';
 import "./Landing.css"
-import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-function Loader() {
-    const { progress } = useProgress()
-    return <Html center>{progress} % loaded</Html>
-  }
 
-export default function Landing() {
-  const [open, setOpen] = React.useState(false);
+function Loader({show,setShow}) {
+ 
 
-  const handleClick = () => {
-    setOpen(true);
-  };
+  useEffect(() => {
+    // 1초 후에 Loader 컴포넌트를 숨깁니다.
+    const timeout = setTimeout(() => setShow(false), 8000)
+    console.log(show)
+    return () => clearTimeout(timeout)
+  }, [setShow])
 
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
+  return (
+    <div
+      style={{
+        opacity: show ? 1 : 0,
+        transition: "opacity 5s",
+        background: "white",
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+ 
+ <TypeAnimation
+      sequence={[
+        // Same substring at the start will only be typed out once, initially
+        'Hello World',
+        1000, // wait 1s before replacing "Mice" with "Hamsters"
+        'Hello Visitor',
+        1000,
+        'Hello Friend',
+        1000,
+        'Hello Everyone',
+        1000
+      ]}
+      wrapper="span"
+      speed={50}
+      style={{ fontSize: '2em', display: 'inline-block' }}
+      repeat={Infinity}
+    />
+     
+    </div>
+  )
+}
 
-    setOpen(false);
-  };
-  const action = (
-    <React.Fragment>
-      <Button color="secondary" size="small" onClick={handleClose}>
-        UNDO
-      </Button>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleClose}
-      >
-        <CloseIcon fontSize="small" />
-      </IconButton>
-    </React.Fragment>
-  );
 
 
+
+export default function Landing({render,setRender}) {
 
 
   const overlay = useRef()
@@ -51,21 +63,21 @@ export default function Landing() {
   const scroll = useRef(0)
   const styles = {
     page: {
-      backgroundColor: '#f7f7f7',
+      backgroundColor: '#101010',
       height: '100vh',
     }
   }
+  
   return (
+    render ? 
+    <Loader show={render} setShow={setRender} />:
     <>
-      <Canvas shadows eventSource={document.getElementById("root")}  style={styles.page}  eventPrefix="client">
+      <Canvas shadows eventSource={document.getElementById("root")} style={styles.page} eventPrefix="client">
         <ambientLight intensity={1} />
-        <Suspense fallback={<Loader />}>
-          <Model scroll={scroll} style={styles.page} />
-          <Environment preset="city" />
-        </Suspense>
+        <Model scroll={scroll} style={styles.page} />
+        {/* <Environment preset="city" /> */}
       </Canvas>
       <Overlay ref={overlay} caption={caption} scroll={scroll} />
-     
     </>
   )
 }

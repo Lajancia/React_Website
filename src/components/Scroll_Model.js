@@ -26,6 +26,9 @@ export default function Model({ scroll, ...props }) {
   const handleGitClick = () => {
     window.location.href = `https://github.com/Lajancia`;
   }
+  const handleBookClick = () => {
+    window.location.href = `https://www.yes24.com/Product/Goods/96881583`;
+  }
   const handleCoffeeClick = () => navigate('/work');
 
   const handleHatClick = () => navigate('/education');
@@ -38,12 +41,12 @@ export default function Model({ scroll, ...props }) {
   useFrame((state) => {
     actions["CameraAction.005"].time = THREE.MathUtils.lerp(actions["CameraAction.005"].time, actions["CameraAction.005"].getClip().duration * scroll.current, 0.05)
     group.current.children[0].children.forEach((child, index) => {
-      child.material.color.lerp(color.set(hovered === child.name ? "#ff9a3c" : "#93A8BD"), hovered ? 0.1 : 0.05)
+      child.material.color.lerp(color.set(hovered === child.name ? "#ff9a3c" : "#101010"), hovered ? 0.3:0.3)
       const et = state.clock.elapsedTime
-      child.position.y = Math.sin((et + index * 2000) / 2) * 1
-      child.rotation.x = Math.sin((et + index * 2000) / 3) / 10
-      child.rotation.y = Math.cos((et + index * 2000) / 2) / 10
-      child.rotation.z = Math.sin((et + index * 2000) / 3) / 10
+      // child.position.y = Math.sin((et + index * 2000) / 2) * 1
+      // child.rotation.x = Math.sin((et + index * 2000) / 3) / 10
+      // child.rotation.y = Math.cos((et + index * 2000) / 3) / 10
+      // child.rotation.z = Math.sin((et + index * 2000) / 3) / 10
     })
   })
 
@@ -57,7 +60,7 @@ export default function Model({ scroll, ...props }) {
         <mesh name="hat" geometry={nodes.hat.geometry} material={materials.hat} {...extras}  onClick={() =>{ handleHatClick()} }
       ref={myMesh} />
         <mesh name="Notebook" geometry={nodes.Notebook.geometry} material={materials.M_Notebook} {...extras} onClick={() =>{ handleGitClick()} }/>
-        <mesh name="Book" geometry={nodes.Book.geometry} material={materials.M_Book} {...extras} />
+        <mesh name="Book" geometry={nodes.Book.geometry} material={materials.M_Book} {...extras} onClick={() =>{ handleBookClick()} }/>
         <mesh name="Text" geometry={nodes.Text.geometry} material={materials.projects} {...extras} />
         <mesh name="Picture" geometry={nodes.picture.geometry} material={materials.picture} {...extras} onClick={() =>{ handleInstaClick()} }/>
         <mesh name="Coffee" geometry={nodes.Coffee.geometry} material={materials.M_Coffee} {...extras} onClick={() =>{ handleCoffeeClick()} }/>

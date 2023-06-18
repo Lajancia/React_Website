@@ -1,3 +1,4 @@
+import {useState} from "react"
 import Work from './layer/Work'
 import Landing from './layer/Landing';
 import {Route,Routes} from 'react-router-dom';
@@ -10,11 +11,13 @@ const styles = {
 }
 function App() {
   document.title = "Lajancia React Portfolio";
+  const [render,setRender] = useState(true);
+  console.log(render)
   return (
     <div style={styles.background}>
       
       <Routes>
-          <Route exact path="/" element={<Landing/>}></Route>
+          <Route exact path="/" element={<Landing render={render} setRender={setRender}/>}></Route>
           <Route path="/work" element={< Work/>}></Route>
           <Route path="/education" element={< Education/>}></Route>
           <Route path="/" element={'Not found'}></Route>

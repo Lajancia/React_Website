@@ -92,11 +92,6 @@ const Overlay3 = ()=>{
             title={"Role:"}
             word={"Web Developer in the Development Team"}/>
         </div>
-        <div class="captions">
-          <Glasscard 
-            title={"Role:"}
-            word={"Web Developer in the Development Team"}/>
-        </div>
          <div class="captions">
           <GlassDisplayCard
             title={"Responsibilities:"}

@@ -80,7 +80,7 @@ export default function Bubble() {
         <SSAO samples={31} radius={10} intensity={30} luminanceInfluence={0.1} color="white" />
       </EffectComposer>
       <Suspense fallback={null}>
-        <Environment preset="sunset" />
+        {/* <Environment preset="sunset" /> */}
       </Suspense>
     </Canvas>
     <Box minHeight="27vh">
