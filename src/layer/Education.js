@@ -38,7 +38,7 @@ const Education = () => {
              category={'Certificate'}
              title={'AZURE- 900'}
              duration={'2022.02'}
-             explain={'Achieve Microsoft AZURE fundamental certification to learn how to use Cloud service.'}
+             explain={'Achieved Microsoft AZURE fundamental certification to learn how to use Cloud service.'}
             />
             </Grid>
             <Grid item xs={12} sm={12} md={4} style={{ padding: '4px'}}>
@@ -46,7 +46,7 @@ const Education = () => {
              category={'Certificate'}
              title={'ADsP'}
              duration={'2021.12'}
-             explain={'Data Analysis certification during the study of AI programming'}
+             explain={'Achieved Data Analysis certification during the study of AI programming'}
             />
             </Grid>
             <Grid item xs={12} style={{ paddingLeft: '0px'}}>
