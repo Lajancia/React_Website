@@ -33,7 +33,7 @@ export default function Model({ scroll, ...props }) {
 
   const handleHatClick = () => navigate('/education');
 
-  const handleProjectClick = () => navigate('/project');
+  const handleProjectClick = () => navigate('/project1');
 
   useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
   useEffect(() => {
