@@ -79,7 +79,7 @@ export default function Model({ scroll, ...props }) {
             shadow-camera-bottom={-8}
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
-            intensity={2}
+            intensity={5}
             shadow-bias={-0.0001}
           />
         </PerspectiveCamera>

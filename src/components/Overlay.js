@@ -1,11 +1,12 @@
 import React, { forwardRef } from "react"
 
-const Overlay = forwardRef(({ caption, scroll }, ref) => (
+const Overlay = forwardRef(({scroll,setprogress }, ref) => (
   <div
     ref={ref}
     onScroll={(e) => {
       scroll.current = e.target.scrollTop / (e.target.scrollHeight - window.innerHeight)
-      caption.current.innerText = scroll.current.toFixed(2)
+      // caption.current.innerText = scroll.current.toFixed(2)
+      setprogress(scroll.current.toFixed(2)*100)
     }}
     className="scroll">
     <div style={{ height: "200vh" }}>
@@ -57,9 +58,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
         Are you Interested in my works? Have any questions? <br /> Feel free to contact me!
       </div>
     </div>
-    <span className="caption" ref={caption}>
-      0.00
-    </span>
+   
   </div>
 )
 );

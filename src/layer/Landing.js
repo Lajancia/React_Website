@@ -5,7 +5,7 @@ import Model from "../components/Scroll_Model.js"
 import Overlay from "../components/Overlay.js"
 import { TypeAnimation } from 'react-type-animation';
 import "./Landing.css"
-
+import LinearProgress from '@mui/material/LinearProgress';
 function Loader({show,setShow}) {
  
 
@@ -57,10 +57,13 @@ function Loader({show,setShow}) {
 
 export default function Landing({render,setRender}) {
 
-
+  const [progress, setProgress] = useState(0);
   const overlay = useRef()
-  const caption = useRef()
+
   const scroll = useRef(0)
+  // console.log('caption',caption)
+  console.log('scoll', scroll.current)
+  console.log('progress',progress)
   const styles = {
     page: {
       backgroundColor: '#101010',
@@ -71,13 +74,22 @@ export default function Landing({render,setRender}) {
   return (
     render ? 
     <Loader show={render} setShow={setRender} />:
-    <>
+      <>
+        <ScrollProgressBar progress={progress}/>
       <Canvas shadows eventSource={document.getElementById("root")} style={styles.page} eventPrefix="client">
-        <ambientLight intensity={1} />
+        <ambientLight intensity={3} />
         <Model scroll={scroll} style={styles.page} />
         {/* <Environment preset="city" /> */}
       </Canvas>
-      <Overlay ref={overlay} caption={caption} scroll={scroll} />
+        <Overlay ref={overlay} scroll={scroll} setprogress={setProgress}/>
     </>
   )
+}
+
+function ScrollProgressBar({progress}) {
+
+  return <LinearProgress variant="determinate" value={progress}  sx={{
+    '&.MuiLinearProgress-root': { backgroundColor: 'black' },
+    '& .MuiLinearProgress-bar': { backgroundColor: '#f8b500' },
+  }}/>;
 }

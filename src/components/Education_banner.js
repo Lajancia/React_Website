@@ -48,8 +48,8 @@ function MovingLight() {
       position={[0, 10, 0]}
       angle={0.3}
       penumbra={1}
-      intensity={2}
-    color={'#93A8BD'}
+      intensity={5}
+      color={'#93A8BD'}
       castShadow
     />
   )
