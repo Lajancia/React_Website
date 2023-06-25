@@ -25,12 +25,12 @@ function Room() {
       navigate('/');
     };
   
-    const { enabled, ...config } = useControls({
-        enabled: true,
-        size: { value: 25, min: 0, max: 100 },
-        focus: { value: 0, min: 0, max: 2 },
-        samples: { value: 10, min: 1, max: 20, step: 1 }
-      })
+    // const { enabled, ...config } = useControls({
+    //     enabled: true,
+    //     size: { value: 25, min: 0, max: 100 },
+    //     focus: { value: 0, min: 0, max: 2 },
+    //     samples: { value: 10, min: 1, max: 20, step: 1 }
+    //   })
     const [rotation, setRotation] = useState([0, 0, 0])
 
     const handleMouseMove = event => {
@@ -44,7 +44,7 @@ function Room() {
     <>
         
     <Canvas shadows camera={{ position: [5, 5, 5], fov: 60 }} style={{height:"100vh",backgroundColor: '#171918',}}>
-    {enabled && <SoftShadows {...config} />}
+    {/* {enabled && <SoftShadows {...config} />} */}
     <Html style={{marginTop:"30vh"}}>
       <Button
       variant="outlined"
@@ -57,7 +57,7 @@ function Room() {
     <fog attach="fog" args={["#555959", 0,20]} />
 
     <directionalLight castShadow position={[2.5, 5, 5]} intensity={2} shadow-mapSize={1024}>
-      <orthographicCamera attach="shadow-camera" args={[-10, 10, -10, 10, 0.1, 50]} />
+
     </directionalLight>
     <pointLight position={[-30, 0, -30]} color="white" intensity={0.5} />
     <spotLight
