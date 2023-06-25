@@ -33,6 +33,8 @@ export default function Model({ scroll, ...props }) {
 
   const handleHatClick = () => navigate('/education');
 
+  const handleProjectClick = () => navigate('/project');
+
   useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
   useEffect(() => {
     if (hovered) group.current.getObjectByName(hovered).material.color.set("white")
@@ -61,7 +63,7 @@ export default function Model({ scroll, ...props }) {
       ref={myMesh} />
         <mesh name="Notebook" geometry={nodes.Notebook.geometry} material={materials.M_Notebook} {...extras} onClick={() =>{ handleGitClick()} }/>
         <mesh name="Book" geometry={nodes.Book.geometry} material={materials.M_Book} {...extras} onClick={() =>{ handleBookClick()} }/>
-        <mesh name="Text" geometry={nodes.Text.geometry} material={materials.projects} {...extras} />
+        <mesh name="Text" geometry={nodes.Text.geometry} material={materials.projects} {...extras} onClick={() =>{ handleProjectClick()} }/>
         <mesh name="Picture" geometry={nodes.picture.geometry} material={materials.picture} {...extras} onClick={() =>{ handleInstaClick()} }/>
         <mesh name="Coffee" geometry={nodes.Coffee.geometry} material={materials.M_Coffee} {...extras} onClick={() =>{ handleCoffeeClick()} }/>
         <mesh name="Contect" geometry={nodes.Contect.geometry} material={materials.M_Contact} v onClick={() =>{ handleEmailClick()} }/>
