@@ -1,26 +1,26 @@
 import React, { Suspense, useRef,useState, useEffect  } from "react"
 import { Canvas } from "@react-three/fiber"
-import { Environment, Html } from "@react-three/drei"
+import { Environment, Html,useProgress } from "@react-three/drei"
 import Model from "../components/Scroll_Model.js"
 import Overlay from "../components/Overlay.js"
 import { TypeAnimation } from 'react-type-animation';
 import "./Landing.css"
 import LinearProgress from '@mui/material/LinearProgress';
 function Loader({show,setShow}) {
- 
-
+  const { progress } = useProgress()
+  console.log(progress)
   useEffect(() => {
     // 1초 후에 Loader 컴포넌트를 숨깁니다.
-    const timeout = setTimeout(() => setShow(false), 8000)
-    console.log(show)
-    return () => clearTimeout(timeout)
-  }, [setShow])
+   if(progress===100){
+    setShow(false)
+   }
+  }, [progress])
 
   return (
     <div
       style={{
-        opacity: show ? 1 : 0,
-        transition: "opacity 5s",
+        // opacity: show ? 1 : 0,
+        // transition: "opacity 5s",
         background: "white",
         width: "100%",
         height: "100vh",
@@ -29,8 +29,7 @@ function Loader({show,setShow}) {
         alignItems: "center",
       }}
     >
- 
- <TypeAnimation
+    <TypeAnimation
       sequence={[
         // Same substring at the start will only be typed out once, initially
         'Hello World',
@@ -75,6 +74,7 @@ export default function Landing({render,setRender}) {
     render ? 
     <Loader show={render} setShow={setRender} />:
       <>
+       <Suspense fallback={<Loader />}>
         <ScrollProgressBar progress={progress}/>
       <Canvas shadows eventSource={document.getElementById("root")} style={styles.page} eventPrefix="client">
         <ambientLight intensity={3} />
@@ -82,6 +82,7 @@ export default function Landing({render,setRender}) {
         {/* <Environment preset="city" /> */}
       </Canvas>
         <Overlay ref={overlay} scroll={scroll} setprogress={setProgress}/>
+    </Suspense>
     </>
   )
 }

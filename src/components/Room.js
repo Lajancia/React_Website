@@ -1,11 +1,24 @@
-import React, { useRef, useState,Suspense  } from 'react'
+import React, { useRef, useState,Suspense,useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, useGLTF,SoftShadows,Reflector,Html, useProgress } from '@react-three/drei'
 import { height } from '@mui/system'
 import { useControls } from "leva"
 import Button from '@mui/material/Button';
-import { useNavigate  } from 'react-router-dom';
+import './index.css'
+import { useNavigate,useLocation  } from 'react-router-dom';
 // import Button from '@mui/material/Button'
+
+
+const styles = {
+  button: {
+    position: 'fixed',
+    bottom: '20px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    color: 'white', borderColor: 'white' 
+  }
+}
+
 function Model(props) {
   const group = useRef()
   const { scene } = useGLTF('/ROOM2.gltf')
@@ -19,6 +32,10 @@ function Loader() {
   
 
 function Room() {
+  const location = useLocation();
+    useEffect(() => {
+        document.body.style.cursor = 'auto';
+      }, [location]);
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -39,21 +56,20 @@ function Room() {
       const rotationValue = (clientX / windowWidth - 0.5) * 2
       setRotation([0, rotationValue,0 ])
     }
+    const controls = useRef()
 
+    useEffect(() => {
+      if (controls.current) {
+        controls.current.minDistance = 5
+        controls.current.maxDistance = 10
+      }
+      console.log(controls.current)
+    }, [])
   return (
     <>
         
-    <Canvas shadows camera={{ position: [5, 5, 5], fov: 60 }} style={{height:"100vh",backgroundColor: '#171918',}}>
+    <Canvas shadows camera={{ position: [5, 4.5, 5], fov: 60 }} style={{height:"100vh",backgroundColor: '#171918',}}>
     {/* {enabled && <SoftShadows {...config} />} */}
-    <Html style={{marginTop:"30vh"}}>
-      <Button
-      variant="outlined"
-      style={{ color: 'white', borderColor: 'white' }}
-      onClick={handleClick}
-    >
-      Go Back Home
-    </Button>
-      </Html>
     <fog attach="fog" args={["#555959", 0,20]} />
 
     <directionalLight castShadow position={[2.5, 5, 5]} intensity={2} shadow-mapSize={1024}>
@@ -92,10 +108,30 @@ function Room() {
       </Suspense>
     </group>
    
-    <OrbitControls/>
+    <OrbitControls
+    ref={controls}
+    zoomSpeed={0.25}
+    minZoom={40}
+    maxZoom={140}
+    enablePan={false}
+    dampingFactor={0.05}
+    minPolarAngle={Math.PI / 3}
+    maxPolarAngle={Math.PI / 3}
+    />
     
   </Canvas>
-  
+
+  <div style={{ textAlign: 'center' }}>
+        <Button
+      variant="outlined"
+      onClick={handleClick}
+      style={styles.button}
+    >
+      Go Back Home
+    </Button>
+    </div>
+
+
  
   </>
   )

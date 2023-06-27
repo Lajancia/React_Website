@@ -19,19 +19,19 @@ const Overlay = forwardRef(({scroll,setprogress }, ref) => (
     <div style={{ height: "200vh" }}>
       <div className="dot">
         <h1>WORK</h1>
-        I love the scent of morning coffee and Burning GPU. Right now, I'm working as FullStack Programmer. Although I'm junior developer, I always try to be better than yesterday :)
+        I love the scent of morning coffee and Burning GPU. Right now, I'm working as FullStack Programmer in Yura.
       </div>
     </div>
     <div style={{ height: "200vh" }}>
       <div className="dot">
         <h1>EDUCATION</h1>
-        19 Years and Plus of my Education. Graduating the University, study various languages and so on. 
+        19 Years and Plus of my Education. Graduated the University, studied various languages and so on. 
       </div>
     </div>
     <div style={{ height: "200vh" }}>
       <div className="dot">
         <h1>PUBLISHING</h1>
-       I really like writting. During the University Student, I won the Writting competition and have chance to publish my own Book! 
+       I really like writting. I won the Writting competition and have chance to publish my own Book! 
       </div>
     </div>
     <div style={{ height: "200vh" }}>
@@ -49,7 +49,7 @@ const Overlay = forwardRef(({scroll,setprogress }, ref) => (
     <div style={{ height: "200vh" }}>
       <div className="dot">
         <h1>CODING</h1>
-        Living as a Programmer is like living in a dilema of Why it works and why it doesn't work. But my true friend stackOverflow helps a lot. Maybe I'm better than yesterday.
+        Living as a Programmer is like living in a dilema of Why it works and why it doesn't work.
       </div>
     </div>
     <div style={{ height: "200vh" }}>
@@ -58,7 +58,6 @@ const Overlay = forwardRef(({scroll,setprogress }, ref) => (
         Are you Interested in my works? Have any questions? <br /> Feel free to contact me!
       </div>
     </div>
-   
   </div>
 )
 );
