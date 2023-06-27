@@ -12,7 +12,10 @@ function Loader({show,setShow}) {
   useEffect(() => {
     // 1초 후에 Loader 컴포넌트를 숨깁니다.
    if(progress===100){
-    setShow(false)
+    setTimeout(() => {
+        setShow(false);
+      }, 5000);
+    
    }
   }, [progress])
 
