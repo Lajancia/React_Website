@@ -4,9 +4,6 @@ import './index.css'
 import {Glasscard,GlassDisplayCard} from '../components/Glasscard'
 import { useNavigate  } from 'react-router-dom';
 
-
-
-
 const Overlay = ()=>{
   return(
       <div class="frame">

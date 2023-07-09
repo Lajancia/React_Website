@@ -6,7 +6,7 @@ import { useFrame } from "@react-three/fiber"
 
 const color = new THREE.Color()
 
-export default function Model({ scroll, ...props }) {
+export default function Model({ scroll, open, setOpen,open2, setOpen2, ...props }) {
   const navigate = useNavigate();
   const group = useRef()
   const { nodes, materials, animations } = useGLTF("/scroll.glb")
@@ -17,17 +17,27 @@ export default function Model({ scroll, ...props }) {
   const myMesh = React.useRef();
   const extras = { receiveShadow: true, castShadow: true, "material-envMapIntensity": 0.2 }
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+const handleClickOpen2 = () => {
+    setOpen2(true);
+  };
+  
   const handleEmailClick = () => {
     window.location.href = `mailto:kie6974@gmail.com`;
   }
   const handleInstaClick = () => {
-    window.location.href = `https://instagram.com/lajancia/`;
+    // window.location.href = ;
+    window.open(`https://instagram.com/lajancia/`, '_blank');
   }
   const handleGitClick = () => {
-    window.location.href = `https://github.com/Lajancia`;
+    // window.location.href = ;
+    window.open(`https://github.com/Lajancia`, '_blank');
   }
   const handleBookClick = () => {
-    window.location.href = `https://www.yes24.com/Product/Goods/96881583`;
+    window.open(`https://www.yes24.com/Product/Goods/96881583`, '_blank');
+    // window.location.href = ;
   }
   const handleCoffeeClick = () => navigate('/work');
 
@@ -59,13 +69,13 @@ export default function Model({ scroll, ...props }) {
         onPointerOut={(e) => (e.stopPropagation(), set(null))}
         position={[0.06, 4.04, 0.35]}
         scale={[0.25, 0.25, 0.25]}>
-        <mesh name="hat" geometry={nodes.hat.geometry} material={materials.hat} {...extras}  onClick={() =>{ handleHatClick()} }
+        <mesh name="hat" geometry={nodes.hat.geometry} material={materials.hat} {...extras}  onClick={() =>{ handleClickOpen2()} }
       ref={myMesh} />
         <mesh name="Notebook" geometry={nodes.Notebook.geometry} material={materials.M_Notebook} {...extras} onClick={() =>{ handleGitClick()} }/>
         <mesh name="Book" geometry={nodes.Book.geometry} material={materials.M_Book} {...extras} onClick={() =>{ handleBookClick()} }/>
         <mesh name="Text" geometry={nodes.Text.geometry} material={materials.projects} {...extras} onClick={() =>{ handleProjectClick()} }/>
         <mesh name="Picture" geometry={nodes.picture.geometry} material={materials.picture} {...extras} onClick={() =>{ handleInstaClick()} }/>
-        <mesh name="Coffee" geometry={nodes.Coffee.geometry} material={materials.M_Coffee} {...extras} onClick={() =>{ handleCoffeeClick()} }/>
+        <mesh name="Coffee" geometry={nodes.Coffee.geometry} material={materials.M_Coffee} {...extras} onClick={() =>{ handleClickOpen()} }/>
         <mesh name="Contect" geometry={nodes.Contect.geometry} material={materials.M_Contact} v onClick={() =>{ handleEmailClick()} }/>
       </group>
       <group name="Camera" position={[-1.78, 2.04, 23.58]} rotation={[1.62, 0.01, 0.11]}>
@@ -79,7 +89,7 @@ export default function Model({ scroll, ...props }) {
             shadow-camera-bottom={-8}
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
-            intensity={5}
+            intensity={3}
             shadow-bias={-0.0001}
           />
         </PerspectiveCamera>

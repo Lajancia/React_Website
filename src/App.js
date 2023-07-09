@@ -13,7 +13,7 @@ const styles = {
 function App() {
   document.title = "Lajancia React Portfolio";
   const [render,setRender] = useState(true);
-  console.log(render)
+  // console.log(render)
   return (
     <div style={styles.background}>
       

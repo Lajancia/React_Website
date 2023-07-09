@@ -8,7 +8,7 @@ import "./Landing.css"
 import LinearProgress from '@mui/material/LinearProgress';
 function Loader({show,setShow}) {
   const { progress } = useProgress()
-  console.log(progress)
+  // console.log(progress)
   useEffect(() => {
     // 1초 후에 Loader 컴포넌트를 숨깁니다.
    if(progress===100){
@@ -58,14 +58,13 @@ function Loader({show,setShow}) {
 
 
 export default function Landing({render,setRender}) {
-
+  const [open, setOpen] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
   const [progress, setProgress] = useState(0);
+  
+  // const [progress, setProgress] = useState(0);
   const overlay = useRef()
-
   const scroll = useRef(0)
-  // console.log('caption',caption)
-  console.log('scoll', scroll.current)
-  console.log('progress',progress)
   const styles = {
     page: {
       backgroundColor: '#101010',
@@ -81,10 +80,10 @@ export default function Landing({render,setRender}) {
         <ScrollProgressBar progress={progress}/>
       <Canvas shadows eventSource={document.getElementById("root")} style={styles.page} eventPrefix="client">
         <ambientLight intensity={3} />
-        <Model scroll={scroll} style={styles.page} />
+        <Model scroll={scroll} open={open} setOpen={setOpen} open2={open2} setOpen2={setOpen2} style={styles.page} />
         {/* <Environment preset="city" /> */}
       </Canvas>
-        <Overlay ref={overlay} scroll={scroll} setprogress={setProgress}/>
+        <Overlay ref={overlay} scroll={scroll} setprogress={setProgress} open={open} setOpen={setOpen} open2={open2} setOpen2={setOpen2} />
     </Suspense>
     </>
   )

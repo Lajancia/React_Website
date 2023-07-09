@@ -63,7 +63,7 @@ function Room() {
         controls.current.minDistance = 5
         controls.current.maxDistance = 10
       }
-      console.log(controls.current)
+      // console.log(controls.current)
     }, [])
   return (
     <>
