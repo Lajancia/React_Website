@@ -1,25 +1,41 @@
 import React, { forwardRef } from "react"
 import { Button, Dialog,DialogContent } from '@mui/material';
 import { makeStyles } from '@mui/styles'
-import {Glasscard,GlassDisplayCard,GlassSkillCard,GlassWorkCard} from './Glasscard'
+import GlassWorkCard from './Overlay/About'
+import GlassSkillCard from './Overlay/Skills'
+import GlassCareerCard from './Overlay/Career'
+import GlassProjectCard from './Overlay/Projects'
+import Card from '@mui/material/Card';
+import { styled } from '@mui/material/styles';
+
 
 const useStyles = makeStyles({
   paper: {
-    backgroundColor:'transparent'
+    // backgroundColor: 'transparent',
+    // backdropFilter: 'blur(4px)'
+    
   },
 });
 
-const CustomDialog = ({open,setOpen,title,word}) => {
+const GlassCard = styled(Card)(({ theme }) => ({
+  backgroundColor: 'rgba(34, 34, 34, 0.6)',
+  backdropFilter: 'blur(4px)',
+  color : '#ffffff',
+  boxShadow: theme.shadows[5]
+
+}));
+
+const CustomDialog = ({selectComponent,setSelectedComponent,title,word}) => {
   const classes = useStyles();
-  // const [open, setOpen] = React.useState(false);
-const handleClose = () => {
-    setOpen(false);
+  const handleClose = () => {
+    setSelectedComponent('overlay');
   };
 
   return (
     <div>
       <Dialog
-        open={open}
+        maxWidth={1000}
+        open={selectComponent!=='overlay'? true : false}
         onClose={handleClose}
         aria-labelledby="scroll-dialog-title"
         aria-describedby="scroll-dialog-description"
@@ -27,53 +43,26 @@ const handleClose = () => {
           style: {
             backgroundColor: 'transparent',
             boxShadow: 'none',
+            width:'70%'
           },
         }}
         BackdropProps={{ invisible: true }}
       >
         {/* Your dialog content here */}
-        <DialogContent onClick={handleClose} style={{ overflow: 'scroll' }}>
-        <GlassWorkCard/>
+        <DialogContent onClick={handleClose} style={{ overflow: 'scroll'}}>
+          <GlassCard>
+            {selectComponent === 'coffee' && <GlassWorkCard />}
+            {selectComponent === 'skills' && <GlassSkillCard />}
+            {selectComponent === 'career' && <GlassCareerCard />}
+            {selectComponent === 'projects' && <GlassProjectCard />}
+            </GlassCard>
         </DialogContent>
       </Dialog>
     </div>
   );
 }
 
-const CustomDialog2 = ({open,setOpen}) => {
-  const classes = useStyles();
-  
-  // const [open, setOpen] = React.useState(false);
-const handleClose = () => {
-    setOpen(false);
-  };
-
-  return (
-    <div>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="scroll-dialog-title"
-        aria-describedby="scroll-dialog-description"
-        PaperProps={{
-          style: {
-            backgroundColor: 'transparent',
-            boxShadow: 'none',
-          },
-        }}
-        BackdropProps={{ invisible: true }}
-      >
-        <DialogContent onClick={handleClose} style={{ overflow: 'scroll' }}>
-        <GlassSkillCard/>
-        </DialogContent>
-        {/* Your dialog content here */}
-         
-      </Dialog>
-    </div>
-  );
-}
-
-const Overlay = forwardRef(({scroll,setprogress,open, setOpen,open2,setOpen2 }, ref) => (
+const Overlay = forwardRef(({scroll,setprogress,selectComponent, setSelectedComponent}, ref) => (
   <div
     ref={ref}
     onScroll={(e) => {
@@ -82,62 +71,69 @@ const Overlay = forwardRef(({scroll,setprogress,open, setOpen,open2,setOpen2 }, 
       setprogress(scroll.current.toFixed(2)*100)
     }}
     className="scroll">
-    <div style={{ height: "200vh" }}>
-      <div className="dot">
-        {!open && !open2?
-          <>
+    <div style={{ height: "200vh"}}>
+        {selectComponent==='overlay'?
+          <div className="dot">
           <h1>PORTFOLIO</h1>
           <div >Welcome to Soomin's Portfolio Website. This Website was Built with REACT + Three + Fiber. Feel free to look around. </div>
-          </>
-          : null}
-        <CustomDialog open={open} setOpen={setOpen}
-        title={"Welcome!"}
-            word={"This Website is the Second version of personal Website. Previously It was built with Vue.js but now I rebuild this with React.js to give an animation effeciently using 3D Model."}/>
-      </div>
+          </div>
+          :  <CustomDialog selectComponent={selectComponent} setSelectedComponent={setSelectedComponent}/>}
       
     </div>
     <div style={{ height: "200vh" }}>
       <div className="dot">
-         {!open && !open2 ?
+        {selectComponent === 'overlay' ?
           <>
-         <h1>WORK</h1>
-        I love the scent of morning coffee and Burning GPU. Right now, I'm working as FullStack Programmer in Yura.
-          </>
-          : null}
+            <h1>ABOUT ME</h1>
+            I love the scent of morning coffee and Burning GPU. <br /> Right now, I'm working as FullStack Programmer in Yura.
+          </> :
+          null
+        }
+      </div>
+    </div>
+    <div style={{ height: "200vh" }}>
+      <div className="dot">
+        {selectComponent === 'overlay' ?
+          <>
+            <h1>SKILLS</h1>
+            19 Years and Plus of my Education. Graduated the University, studied various languages and so on.
+          </> :null
+        }
+        
+       
+        </div>
+    </div>
+    <div style={{ height: "200vh" }}>
+      <div className="dot">
+        {selectComponent === 'overlay' ?
+          <>
+            <h1>CAREER</h1>
+       I really like writting. I won the Writting competition and have chance to publish my own Book! 
+          </> :null
+        }
         
       </div>
     </div>
     <div style={{ height: "200vh" }}>
       <div className="dot">
-        {!open2 ?
-        <>
-          <h1>EDUCATION</h1>
-        19 Years and Plus of my Education. Graduated the University, studied various languages and so on. 
-      </> : null}
-        <CustomDialog2 open={open2} setOpen={setOpen2}/>
-        </div>
-    </div>
-    <div style={{ height: "200vh" }}>
-      <div className="dot">
-        <h1>PUBLISHING</h1>
-       I really like writting. I won the Writting competition and have chance to publish my own Book! 
-      </div>
-    </div>
-    <div style={{ height: "200vh" }}>
-      <div className="dot">
-        <h1>PROJECTS</h1>
+        {selectComponent === 'overlay' ?
+          <>
+           <h1>PROJECTS</h1>
         I Did a lot of projects. With Team or without team. I prefer to do my own work, But Teamwork is always important.
+          </> :null
+        }
+        
       </div>
     </div>
     <div style={{ height: "200vh" }}>
       <div className="dot">
-        <h1>GALLERY</h1>
+        <h1>ARCHIVING</h1>
        I like writting and also drawing. I draw a lot of arts and make a lot of models. You can check my Instagram :)
       </div>
     </div>
     <div style={{ height: "200vh" }}>
       <div className="dot">
-        <h1>CODING</h1>
+        <h1>GITHUB</h1>
         Living as a Programmer is like living in a dilema of Why it works and why it doesn't work.
       </div>
     </div>

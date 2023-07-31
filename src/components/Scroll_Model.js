@@ -6,7 +6,7 @@ import { useFrame } from "@react-three/fiber"
 
 const color = new THREE.Color()
 
-export default function Model({ scroll, open, setOpen,open2, setOpen2, ...props }) {
+export default function Model({ scroll, selectComponent, setSelectedComponent, ...props }) {
   const navigate = useNavigate();
   const group = useRef()
   const { nodes, materials, animations } = useGLTF("/scroll.glb")
@@ -17,13 +17,11 @@ export default function Model({ scroll, open, setOpen,open2, setOpen2, ...props 
   const myMesh = React.useRef();
   const extras = { receiveShadow: true, castShadow: true, "material-envMapIntensity": 0.2 }
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleClickOpen = (component) => {
+    console.log(component)
+    setSelectedComponent(component);
   };
-const handleClickOpen2 = () => {
-    setOpen2(true);
-  };
-  
+
   const handleEmailClick = () => {
     window.location.href = `mailto:kie6974@gmail.com`;
   }
@@ -53,12 +51,8 @@ const handleClickOpen2 = () => {
   useFrame((state) => {
     actions["CameraAction.005"].time = THREE.MathUtils.lerp(actions["CameraAction.005"].time, actions["CameraAction.005"].getClip().duration * scroll.current, 0.05)
     group.current.children[0].children.forEach((child, index) => {
-      child.material.color.lerp(color.set(hovered === child.name ? "#ff9a3c" : "#101010"), hovered ? 0.3:0.3)
+      child.material.color.lerp(color.set(hovered === child.name ? "#F5564E" : "#101010"), hovered ? 0.3:0.3)
       const et = state.clock.elapsedTime
-      // child.position.y = Math.sin((et + index * 2000) / 2) * 1
-      // child.rotation.x = Math.sin((et + index * 2000) / 3) / 10
-      // child.rotation.y = Math.cos((et + index * 2000) / 3) / 10
-      // child.rotation.z = Math.sin((et + index * 2000) / 3) / 10
     })
   })
 
@@ -69,13 +63,13 @@ const handleClickOpen2 = () => {
         onPointerOut={(e) => (e.stopPropagation(), set(null))}
         position={[0.06, 4.04, 0.35]}
         scale={[0.25, 0.25, 0.25]}>
-        <mesh name="hat" geometry={nodes.hat.geometry} material={materials.hat} {...extras}  onClick={() =>{ handleClickOpen2()} }
+        <mesh name="hat" geometry={nodes.hat.geometry} material={materials.hat} {...extras}  onClick={() =>{handleClickOpen('skills')} }
       ref={myMesh} />
         <mesh name="Notebook" geometry={nodes.Notebook.geometry} material={materials.M_Notebook} {...extras} onClick={() =>{ handleGitClick()} }/>
-        <mesh name="Book" geometry={nodes.Book.geometry} material={materials.M_Book} {...extras} onClick={() =>{ handleBookClick()} }/>
-        <mesh name="Text" geometry={nodes.Text.geometry} material={materials.projects} {...extras} onClick={() =>{ handleProjectClick()} }/>
+        <mesh name="Book" geometry={nodes.Book.geometry} material={materials.M_Book} {...extras} onClick={() =>{ handleClickOpen('career')}}/>
+        <mesh name="Text" geometry={nodes.Text.geometry} material={materials.projects} {...extras} onClick={() =>{ handleClickOpen('projects')} }/>
         <mesh name="Picture" geometry={nodes.picture.geometry} material={materials.picture} {...extras} onClick={() =>{ handleInstaClick()} }/>
-        <mesh name="Coffee" geometry={nodes.Coffee.geometry} material={materials.M_Coffee} {...extras} onClick={() =>{ handleClickOpen()} }/>
+        <mesh name="Coffee" geometry={nodes.Coffee.geometry} material={materials.M_Coffee} {...extras} onClick={() =>{ handleClickOpen('coffee')} }/>
         <mesh name="Contect" geometry={nodes.Contect.geometry} material={materials.M_Contact} v onClick={() =>{ handleEmailClick()} }/>
       </group>
       <group name="Camera" position={[-1.78, 2.04, 23.58]} rotation={[1.62, 0.01, 0.11]}>
@@ -89,7 +83,7 @@ const handleClickOpen2 = () => {
             shadow-camera-bottom={-8}
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
-            intensity={3}
+            intensity={2.5}
             shadow-bias={-0.0001}
           />
         </PerspectiveCamera>

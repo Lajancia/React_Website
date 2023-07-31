@@ -5,8 +5,10 @@ import Model from "../components/Scroll_Model.js"
 import Overlay from "../components/Overlay.js"
 import { TypeAnimation } from 'react-type-animation';
 import "./Landing.css"
+import GlassWorkCard from '../components/Overlay/About'
 import LinearProgress from '@mui/material/LinearProgress';
-function Loader({show,setShow}) {
+
+function Loader({ show, setShow }) {
   const { progress } = useProgress()
   // console.log(progress)
   useEffect(() => {
@@ -54,14 +56,11 @@ function Loader({show,setShow}) {
   )
 }
 
-
-
-
 export default function Landing({render,setRender}) {
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
   const [progress, setProgress] = useState(0);
-  
+  const [selectComponent,setSelectedComponent]=useState('overlay')
   // const [progress, setProgress] = useState(0);
   const overlay = useRef()
   const scroll = useRef(0)
@@ -80,10 +79,11 @@ export default function Landing({render,setRender}) {
         <ScrollProgressBar progress={progress}/>
       <Canvas shadows eventSource={document.getElementById("root")} style={styles.page} eventPrefix="client">
         <ambientLight intensity={3} />
-        <Model scroll={scroll} open={open} setOpen={setOpen} open2={open2} setOpen2={setOpen2} style={styles.page} />
+        <Model scroll={scroll} selectComponent={selectComponent} setSelectedComponent={setSelectedComponent} style={styles.page} />
         {/* <Environment preset="city" /> */}
-      </Canvas>
-        <Overlay ref={overlay} scroll={scroll} setprogress={setProgress} open={open} setOpen={setOpen} open2={open2} setOpen2={setOpen2} />
+          </Canvas>
+           <Overlay ref={overlay} scroll={scroll} setprogress={setProgress} selectComponent={selectComponent} setSelectedComponent={setSelectedComponent}/>
+        
     </Suspense>
     </>
   )
