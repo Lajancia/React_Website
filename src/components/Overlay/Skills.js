@@ -116,9 +116,8 @@ function GlassSkillCard() {
         <Typography variant="h5" component="div"  forWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
         CERTIFICATION
         </Typography>
-       <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin:'5px'}} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>HTML</Button>
-        <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin: '5px' }} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>CSS</Button>
-        <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin:'5px'}} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>Javascript</Button>
+       <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin:'5px'}} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>ADsP</Button>
+        <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin: '5px' }} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>AZURE-900</Button>
         </Grid>
         <Grid xs={12} sm={3}>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
