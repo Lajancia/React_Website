@@ -3,76 +3,93 @@ import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import PersonIcon from '@mui/icons-material/Person';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import Grid from '@mui/material/Unstable_Grid2';
-import EmailIcon from '@mui/icons-material/Email';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import SchoolIcon from '@mui/icons-material/School';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import Button from '@mui/material/Button';
+import common from '../../assets/commons.png'
+import space from '../../assets/space.jpeg'
+import portfolio from '../../assets/portfoli.png'
+import research from '../../assets/research.png'
+import dive from '../../assets/dive.jpeg'
 
 function GlassProjectCard() {
+    const handleClick = (http) => {
+    // window.location.href = ;
+    window.open(http, '_blank');
+  }
     return (
     <div>
     <CardContent style={{backdropFilter: 'blur(0px)'}}>
-    <ArrowBackIcon/>
-        <Typography variant="h3" component="div" forWeight="bold" align="center" color="#FAB95B">
+        <Typography variant="h3" component="div" forWeight="bold" align="center" color="#FAB95B" sx={{fontWeight:'bold'}}>
         PROJECTS
         </Typography>
         <br/>
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
-        <Grid xs={12} sm={5}>
-            {/* <Card sx={{ minWidth: 200 }}> */}
-            <Grid container spacing={2} justifyContent="center" alignItems="center">
-                <Grid xs={12} sm={4}>
-                    <PersonIcon style={{fontSize:'6em', margin:'5px', color:'#F5564E'}}/>
-                </Grid>
-                <Grid xs={12} sm={8}>
-                    <Typography variant="h4">NAME</Typography>
-                    <Typography variant="h6">Soomin Hwang</Typography>              
-                </Grid>
-            </Grid>
-        </Grid>
-        <Grid xs={12} sm={5}>
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
-                <Grid xs={12} sm={4}>
-                    <EmailIcon style={{fontSize:'6em', margin:'5px', color:'#F5564E'}}/>
-                </Grid>
-                <Grid xs={12} sm={8}>
-                    <Typography variant="h4">EMAIL</Typography>
-                    <Typography variant="h6">kie6974@gmail.com</Typography>              
-                </Grid>
-            </Grid>
-        </Grid>
-        <Grid xs={12}/>            
-        <Grid xs={12} sm={5}>
-         <Grid container spacing={2} justifyContent="center" alignItems="center">
-                <Grid xs={12} sm={4}>
-                    <CalendarMonthIcon style={{fontSize:'6em', margin:'5px', color:'#F5564E'}}/>
-                </Grid>
-                <Grid xs={12} sm={8}>
-                    <Typography variant="h4">BIRTHDAY</Typography>
-                    <Typography variant="h6">1999.02.04</Typography>              
-                </Grid>
-            </Grid>
-        </Grid>
-        <Grid xs={12} sm={5}>
-         <Grid container spacing={2} justifyContent="center" alignItems="center">
-                <Grid xs={12} sm={4}>
-                    <SchoolIcon style={{fontSize:'6em', margin:'5px', color:'#F5564E'}}/>
-                </Grid>
-                <Grid xs={12} sm={8}>
-                    <Typography variant="h4">GRADUATE</Typography>
-                    <Typography variant="h6">Hankuk University of <br/> Foreign Studies</Typography>              
-                </Grid>
-                <Grid xs={12} justifyContent="center" alignItems="center">(Major - Computer Electronic System)</Grid>
-            </Grid>
-            
-        </Grid>             
-       </Grid>
+         <ImageList>
+      {itemData.map((item) => (
+        <ImageListItem key={item.img} >
+          <img
+            src={`${item.img}`}
+            srcSet={`${item.img}`}
+            alt={item.title}
+            loading="lazy"
+          />
+          <ImageListItemBar
+            title={item.title}
+            subtitle={item.author}
+            actionIcon={
+              <Button variant="outlined" sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}} style={{ color: 'white', borderColor: 'white', margin:'5px'}} onClick={()=>handleClick(item.http)}>VIEW</Button>
+            }
+          />
+        </ImageListItem>
+      ))}
+    </ImageList>
       </CardContent>
     </div>
   );
 }
+
+const itemData = [
+  {
+    img: common,
+    title: 'commON SRL',
+    author: '웹 개발 인턴쉽',
+    rows: 2,
+    cols: 2,
+    http:`http://www.common-mag.com/`,
+    featured: true,
+  },
+  {
+    img: portfolio,
+    title: 'Portfolio Website',
+    author: '개인 포트폴리오 웹사이트 제작',
+    http:`https://github.com/Lajancia/React_Website`,
+  },
+  {
+    img: research,
+    title: '리서치머니',
+    author: 'SWYG 2차 사이드 프로젝트',
+    http:`https://github.com/ReasearchMoney/Front_end`,
+    cols: 2,
+  },
+  {
+    img: dive,
+    title: 'DEEP DIVE',
+    author: '3D Blender 애니메이션 제작',
+    http:`https://www.instagram.com/reel/Cr5BZhGrete/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==`,
+    cols: 2,
+  },
+  {
+    img: space,
+    title: 'SPACE',
+    author: '3D Blender 애니메이션 제작',
+    http:`https://www.instagram.com/p/CXDNGUzLxQQ/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==`,
+    rows: 2,
+    cols: 2,
+    featured: true,
+  }
+];
 
 
 export default GlassProjectCard

@@ -7,7 +7,8 @@ import GlassCareerCard from './Overlay/Career'
 import GlassProjectCard from './Overlay/Projects'
 import Card from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CardContent from '@mui/material/CardContent';
 
 const useStyles = makeStyles({
   paper: {
@@ -49,8 +50,12 @@ const CustomDialog = ({selectComponent,setSelectedComponent,title,word}) => {
         BackdropProps={{ invisible: true }}
       >
         {/* Your dialog content here */}
-        <DialogContent onClick={handleClose} style={{ overflow: 'scroll'}}>
+        <DialogContent  style={{ overflow: 'scroll'}}>
           <GlassCard>
+            <CardContent >
+              <ArrowBackIcon onClick={handleClose}/>
+            </CardContent>
+            
             {selectComponent === 'coffee' && <GlassWorkCard />}
             {selectComponent === 'skills' && <GlassSkillCard />}
             {selectComponent === 'career' && <GlassCareerCard />}
@@ -96,7 +101,7 @@ const Overlay = forwardRef(({scroll,setprogress,selectComponent, setSelectedComp
         {selectComponent === 'overlay' ?
           <>
             <h1>SKILLS</h1>
-            19 Years and Plus of my Education. Graduated the University, studied various languages and so on.
+            The skills that I have. The major skill is React.js and javascript. But I also can do the other various things like server or Database too.
           </> :null
         }
         
