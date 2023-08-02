@@ -18,7 +18,7 @@ export default function Model({ scroll, selectComponent, setSelectedComponent, .
   const extras = { receiveShadow: true, castShadow: true, "material-envMapIntensity": 0.2 }
 
   const handleClickOpen = (component) => {
-    console.log(component)
+    // console.log(component)
     setSelectedComponent(component);
   };
 

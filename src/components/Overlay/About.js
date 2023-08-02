@@ -9,6 +9,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import EmailIcon from '@mui/icons-material/Email';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SchoolIcon from '@mui/icons-material/School';
+import Paper from '@mui/material/Paper';
 // const GlassCard = styled(Card)(({ theme }) => ({
 //   backgroundColor: 'rgba(0, 0, 0, 0.1)',
 // //   backdropFilter: 'blur(2px)',
@@ -21,11 +22,12 @@ function GlassWorkCard() {
     return (
     <div>
     <CardContent style={{backdropFilter: 'blur(0px)'}}>
-        <Typography variant="h3" component="div" forWeight="bold" align="center" color="#FAB95B" sx={{fontWeight:'bold'}}>
+        <Typography variant="h3" component="div" fontWeight="bold" align="center" color="#FAB95B" sx={{fontWeight:'bold'}}>
         ABOUT ME
         </Typography>
         <br/>
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
+        <Paper style={{maxHeight: '50vh',overflow: 'auto', backgroundColor:'transparent', color:'white'}} elevation={0}>
+        <Grid container spacing={2} justifyContent="center" alignItems="center" style={{maxWidth: '100%'}}>
         <Grid xs={12} sm={5}>
             {/* <Card sx={{ minWidth: 200 }}> */}
             <Grid container spacing={2} justifyContent="center" alignItems="center">
@@ -75,6 +77,7 @@ function GlassWorkCard() {
             
         </Grid>             
        </Grid>
+      </Paper>
       </CardContent>
     </div>
   );

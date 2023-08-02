@@ -50,7 +50,7 @@ const CustomDialog = ({selectComponent,setSelectedComponent,title,word}) => {
         BackdropProps={{ invisible: true }}
       >
         {/* Your dialog content here */}
-        <DialogContent  style={{ overflow: 'scroll'}}>
+        <DialogContent  >
           <GlassCard>
             <CardContent >
               <ArrowBackIcon onClick={handleClose}/>

@@ -8,7 +8,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Grid from '@mui/material/Unstable_Grid2';
-
+import Paper from '@mui/material/Paper';
 // const GlassCard = styled(Card)(({ theme }) => ({
 //   backgroundColor: 'rgba(0, 0, 0, 0.1)',
 // //   backdropFilter: 'blur(2px)',
@@ -21,20 +21,21 @@ function GlassSkillCard() {
     return (
     <div>
     
-    <CardContent style={{backdropFilter: 'blur(0px)'}}>
-    
+    <CardContent style={{backdropFilter: 'blur(0px)',overflow: 'scroll'}}>
+
         <Typography variant="h3" component="div" align="center" color="#FAB95B" mb={5} sx={{fontWeight:'bold'}}>
           SKILLS
         </Typography>
         <br/>
-        <Grid container spacing={2} mb={10}>
+        <Paper style={{maxHeight: '50vh', overflow: 'auto', backgroundColor:'transparent'}} elevation={0}>
+        <Grid container spacing={2} mb={10} style={{maxWidth: '100%'}}>
         <Grid xs={12} sm={3}>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                    
             </Typography>
         </Grid>
         <Grid xs={12} sm={9}>
-        <Typography variant="h5" component="div" forWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
+        <Typography variant="h5" component="div" fontWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
         FRONTEND
         </Typography>
        <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin:'5px'}} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>HTML</Button>
@@ -54,9 +55,9 @@ function GlassSkillCard() {
         </Grid>
        </Grid>
        
-       <Grid container spacing={2} mb={10}>
+       <Grid container spacing={2} mb={10} style={{maxWidth: '100%'}}>
         <Grid xs={12} sm={9} style={{textAlign:'right'}}>
-        <Typography variant="h5" component="div"  forWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
+        <Typography variant="h5" component="div"  fontWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
         BACKEND
         </Typography>
         <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin:'5px'}} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>EXPRESS.JS</Button>
@@ -76,9 +77,9 @@ function GlassSkillCard() {
             </Typography>
         </Grid>
     </Grid>
-        <Grid container spacing={2} mb={10} align="center">
+        <Grid container spacing={2} mb={10} align="center" style={{maxWidth: '100%'}}>
         <Grid xs={12} style={{textAlign:'center'}}>
-        <Typography variant="h5" component="div" forWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
+        <Typography variant="h5" component="div" fontWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
             VERSION CONTROL
         </Typography>
         <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin:'5px'}} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>GITHUB</Button>
@@ -86,21 +87,21 @@ function GlassSkillCard() {
         </Grid>
         </Grid>
         <Grid xs={12} style={{textAlign:'center'}} mb={10}>
-        <Typography variant="h5" component="div" forWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
+        <Typography variant="h5" component="div" fontWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
             COMMUNICATION
         </Typography>
         <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin:'5px'}} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>SLACK</Button>
         <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin: '5px' }} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>FIGMA</Button>
         <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin:'5px'}} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>NOTION</Button>
         </Grid>
-        <Grid container spacing={2} mb={10}>
+        <Grid container spacing={2} mb={10} style={{maxWidth: '100%'}}>
         <Grid xs={12} sm={3}>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             
             </Typography>
         </Grid>
         <Grid xs={12} sm={9}>
-        <Typography variant="h5" component="div" forWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
+        <Typography variant="h5" component="div" fontWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
         DEPLOYMENT
         </Typography>
        <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin:'5px'}} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>LINUX UBUNTU</Button>
@@ -111,9 +112,9 @@ function GlassSkillCard() {
         </Grid>
        </Grid>
        
-       <Grid container spacing={2} mb={10}>
+       <Grid container spacing={2} mb={10} style={{maxWidth: '100%'}}>
         <Grid xs={12} sm={9} style={{textAlign:'right'}}>
-        <Typography variant="h5" component="div"  forWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
+        <Typography variant="h5" component="div"  fontWeight="bold" color="#F5564E" sx={{fontWeight:'bold'}}>
         CERTIFICATION
         </Typography>
        <Button variant="outlined" style={{ color: 'white', borderColor: 'white', margin:'5px'}} sx={{":hover":{bgcolor:"#F5564E",color:"#F5564E"}}}>ADsP</Button>
@@ -124,7 +125,8 @@ function GlassSkillCard() {
             
             </Typography>
         </Grid>
-                </Grid>
+                    </Grid>
+                    </Paper>
       </CardContent>
     </div>
   );

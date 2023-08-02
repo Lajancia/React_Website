@@ -13,6 +13,7 @@ import space from '../../assets/space.jpeg'
 import portfolio from '../../assets/portfoli.png'
 import research from '../../assets/research.png'
 import dive from '../../assets/dive.jpeg'
+import Paper from '@mui/material/Paper';
 
 function GlassProjectCard() {
     const handleClick = (http) => {
@@ -22,11 +23,12 @@ function GlassProjectCard() {
     return (
     <div>
     <CardContent style={{backdropFilter: 'blur(0px)'}}>
-        <Typography variant="h3" component="div" forWeight="bold" align="center" color="#FAB95B" sx={{fontWeight:'bold'}}>
+        <Typography variant="h3" component="div" fontWeight="bold" align="center" color="#FAB95B" sx={{fontWeight:'bold'}}>
         PROJECTS
         </Typography>
         <br/>
-         <ImageList>
+        <Paper style={{maxHeight: '50vh', overflow: 'auto', backgroundColor:'transparent'}} elevation={0}>
+         <ImageList style={{maxWidth: '100%'}}>
       {itemData.map((item) => (
         <ImageListItem key={item.img} >
           <img
@@ -44,7 +46,8 @@ function GlassProjectCard() {
           />
         </ImageListItem>
       ))}
-    </ImageList>
+          </ImageList>
+          </Paper>
       </CardContent>
     </div>
   );
