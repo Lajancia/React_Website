@@ -1,11 +1,10 @@
 import React, { Suspense, useRef,useState, useEffect  } from "react"
 import { Canvas } from "@react-three/fiber"
-import { Environment, Html,useProgress } from "@react-three/drei"
+import {useProgress } from "@react-three/drei"
 import Model from "../components/Scroll_Model.js"
 import Overlay from "../components/Overlay.js"
 import { TypeAnimation } from 'react-type-animation';
 import "./Landing.css"
-import GlassWorkCard from '../components/Overlay/About'
 import LinearProgress from '@mui/material/LinearProgress';
 
 function Loader({ show, setShow }) {
@@ -17,7 +16,6 @@ function Loader({ show, setShow }) {
     setTimeout(() => {
         setShow(false);
       }, 5000);
-    
    }
   }, [progress])
 
@@ -57,8 +55,6 @@ function Loader({ show, setShow }) {
 }
 
 export default function Landing({render,setRender}) {
-  const [open, setOpen] = React.useState(false);
-  const [open2, setOpen2] = React.useState(false);
   const [progress, setProgress] = useState(0);
   const [selectComponent,setSelectedComponent]=useState('overlay')
   // const [progress, setProgress] = useState(0);
@@ -90,7 +86,6 @@ export default function Landing({render,setRender}) {
 }
 
 function ScrollProgressBar({progress}) {
-
   return <LinearProgress variant="determinate" value={progress}  sx={{
     '&.MuiLinearProgress-root': { backgroundColor: 'black' },
     '& .MuiLinearProgress-bar': { backgroundColor: '#f8b500' },

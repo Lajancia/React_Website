@@ -1,11 +1,8 @@
 import { Suspense,  useRef} from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import {useProgress, Html,useGLTF,Environment} from '@react-three/drei'
+import {useProgress, Html,useGLTF} from '@react-three/drei'
 import { Overlay, Overlay2, Overlay3 } from "../components/Work_Overlay.js"
 import * as THREE from 'three';
-import './index.css';
-import Grid from '@mui/material/Grid';
-import Glasscard from '../components/Glasscard'
 
  const styles = {
         page: {
@@ -161,12 +158,6 @@ function Work2() {
 }
 
 function Work3() {
-  // const styles = {
-  //     page: {
-  //       backgroundColor: '#93A8BD',
-  //       height: '200vh',
-  //     }
-  // }
   return (
     <>
     <div style={{ position: "relative" }}>

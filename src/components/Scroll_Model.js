@@ -1,4 +1,3 @@
-import { useNavigate  } from 'react-router-dom';
 import * as THREE from "three"
 import React, { useEffect, useRef, useState } from "react"
 import { useGLTF, useAnimations, PerspectiveCamera } from "@react-three/drei"
@@ -7,12 +6,10 @@ import { useFrame } from "@react-three/fiber"
 const color = new THREE.Color()
 
 export default function Model({ scroll, selectComponent, setSelectedComponent, ...props }) {
-  const navigate = useNavigate();
   const group = useRef()
   const { nodes, materials, animations } = useGLTF("/scroll.glb")
   const { actions } = useAnimations(animations, group)
   const [hovered, set] = useState()
-  const [active, setActive] = useState(false);
 
   const myMesh = React.useRef();
   const extras = { receiveShadow: true, castShadow: true, "material-envMapIntensity": 0.2 }
@@ -33,15 +30,6 @@ export default function Model({ scroll, selectComponent, setSelectedComponent, .
     // window.location.href = ;
     window.open(`https://github.com/Lajancia`, '_blank');
   }
-  const handleBookClick = () => {
-    window.open(`https://www.yes24.com/Product/Goods/96881583`, '_blank');
-    // window.location.href = ;
-  }
-  const handleCoffeeClick = () => navigate('/work');
-
-  const handleHatClick = () => navigate('/education');
-
-  const handleProjectClick = () => navigate('/project1');
 
   useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
   useEffect(() => {
@@ -52,7 +40,6 @@ export default function Model({ scroll, selectComponent, setSelectedComponent, .
     actions["CameraAction.005"].time = THREE.MathUtils.lerp(actions["CameraAction.005"].time, actions["CameraAction.005"].getClip().duration * scroll.current, 0.05)
     group.current.children[0].children.forEach((child, index) => {
       child.material.color.lerp(color.set(hovered === child.name ? "#F5564E" : "#101010"), hovered ? 0.3:0.3)
-      const et = state.clock.elapsedTime
     })
   })
 

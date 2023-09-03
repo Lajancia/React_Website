@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react"
-import { Button, Dialog,DialogContent } from '@mui/material';
-import { makeStyles } from '@mui/styles'
+import {Dialog,DialogContent } from '@mui/material';
 import GlassWorkCard from './Overlay/About'
 import GlassSkillCard from './Overlay/Skills'
 import GlassCareerCard from './Overlay/Career'
@@ -9,14 +8,6 @@ import Card from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CardContent from '@mui/material/CardContent';
-
-const useStyles = makeStyles({
-  paper: {
-    // backgroundColor: 'transparent',
-    // backdropFilter: 'blur(4px)'
-    
-  },
-});
 
 const GlassCard = styled(Card)(({ theme }) => ({
   backgroundColor: 'rgba(34, 34, 34, 0.6)',
@@ -27,7 +18,6 @@ const GlassCard = styled(Card)(({ theme }) => ({
 }));
 
 const CustomDialog = ({selectComponent,setSelectedComponent,title,word}) => {
-  const classes = useStyles();
   const handleClose = () => {
     setSelectedComponent('overlay');
   };

@@ -1,22 +1,12 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import PersonIcon from '@mui/icons-material/Person';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Grid from '@mui/material/Unstable_Grid2';
 import EmailIcon from '@mui/icons-material/Email';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SchoolIcon from '@mui/icons-material/School';
 import Paper from '@mui/material/Paper';
-// const GlassCard = styled(Card)(({ theme }) => ({
-//   backgroundColor: 'rgba(0, 0, 0, 0.1)',
-// //   backdropFilter: 'blur(2px)',
-//   color : '#ffffff',
-//   boxShadow: theme.shadows[5],
-
-// }));
 
 function GlassWorkCard() {
     return (
@@ -82,6 +72,5 @@ function GlassWorkCard() {
     </div>
   );
 }
-
 
 export default GlassWorkCard

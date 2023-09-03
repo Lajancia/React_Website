@@ -1,6 +1,5 @@
-import React, { forwardRef } from "react"
+import React from "react"
 import Button from '@mui/material/Button';
-import './index.css'
 import {Glasscard,GlassDisplayCard} from '../components/Glasscard'
 import { useNavigate  } from 'react-router-dom';
 
