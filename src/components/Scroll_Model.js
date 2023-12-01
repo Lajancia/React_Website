@@ -2,12 +2,12 @@ import * as THREE from "three"
 import React, { useEffect, useRef, useState } from "react"
 import { useGLTF, useAnimations, PerspectiveCamera } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
-
+import ScrollOBJ from "../assets/scroll.glb"
 const color = new THREE.Color()
 
 export default function Model({ scroll, selectComponent, setSelectedComponent, ...props }) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF("/scroll.glb")
+  const { nodes, materials, animations } = useGLTF(ScrollOBJ)
   const { actions } = useAnimations(animations, group)
   const [hovered, set] = useState()
 
@@ -79,4 +79,4 @@ export default function Model({ scroll, selectComponent, setSelectedComponent, .
   )
 }
 
-useGLTF.preload("/scroll.glb")
+useGLTF.preload(ScrollOBJ)
